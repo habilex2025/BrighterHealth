@@ -1,0 +1,114 @@
+:root {
+  --scrolling-images-count: 1;
+}
+
+.scrolling-images-container {
+  position: relative;
+
+  @include breakpoint(tablet-down) {
+    // height: calc(100vh * var(--scrolling-images-count));
+    padding-bottom: 0;
+  }
+
+  @include breakpoint(desktop-up) {
+    height: calc(100vh * var(--scrolling-images-count));
+  }
+}
+
+.scrolling-images-wrapper {
+  transition: all ease-in-out 0.5s;
+  display: flex;
+  align-items: center;
+
+  @include breakpoint(tablet-down) {
+    // height: 100vh;
+    // width: 100vw;
+  }
+
+  @include breakpoint(desktop-up) {
+    transform: translateX(-100%);
+    position: absolute;
+    top: var(--scroll-header-height);
+    max-height: calc(100vh - var(--scroll-header-height));
+
+    &.is-scrolling {
+      position: fixed;
+      top: var(--scroll-header-height);
+      bottom: 0;
+      height: auto;
+    }
+
+    &.is-scrolled {
+      bottom: 0;
+      top: auto;
+    }
+  }
+}
+
+.scrolling-images {
+  display: flex;
+  gap: var(--gutter-work);
+  position: relative;
+
+  @include breakpoint(tablet-down) {
+    flex-wrap: wrap;
+    padding: var(--gutter) var(--gutter) 0 var(--gutter);
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  // & > * {
+  //   flex: 0 0 auto;
+  //   scroll-snap-align: start;
+  //   height: 100%;
+  // }
+}
+
+.scrolling-images--on-scroll {
+  // transform: translateX(-100%);
+  transition: all ease-out 0.2s;
+}
+
+.scrolling-images--snap {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrolling-images__image {
+  flex: 0 0 auto;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: calc(75vw - var(--gutter-work));
+  max-height: calc(100vh - var(--gutter-work) - var(--gutter-work) - var(--header-height));
+  z-index: 3;
+
+  @include breakpoint(tablet-down) {
+    width: calc(100vw - var(--gutter) - var(--gutter));
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 66%;
+  }
+
+  img,
+  video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include object-fit(cover);
+  }
+
+  .scrolling-images--snap & {
+    scroll-snap-align: start;
+  }
+}

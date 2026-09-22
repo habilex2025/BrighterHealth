@@ -1,0 +1,29 @@
+.key-points {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5em 1em;
+  font-size: 175%;
+
+  @include breakpoint(tablet-down) {
+    font-size: 115%;
+  }
+}
+
+.key-points__item {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+
+  .icon {
+    color: var(--color-accent);
+    font-size: 160%;
+    line-height: 0;
+    flex-shrink: 0;
+
+    @include breakpoint(tablet-down) {
+      font-size: 145%;
+    }
+  }
+}

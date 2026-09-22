@@ -1,0 +1,24 @@
+{% set title = block.heading ?? '' %}
+{% set categories = craft.entries.section('sectors').all() %}
+
+{% if categories is not empty %}
+<div class="row row--spacious theme-white">
+  <div class="container">
+
+    {% if title|length %}
+    <div class="text-center mb-lg">
+      <h2 class="h1">{{ title|simpleText|raw }}</h2>
+    </div>
+    {% endif %}
+
+    <ul class="bubble-list">
+      {% for category in categories %}
+        <li class="bubble-list__item">
+          {{ category.title }}
+        </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+</div>
+{% endif %}

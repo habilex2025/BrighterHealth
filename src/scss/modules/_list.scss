@@ -1,0 +1,29 @@
+:root {
+  --list-gap: 1.5em;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: calc(var(--list-gap) / 2) var(--list-gap);
+  padding: 0;
+  margin-left: 0 !important;
+}
+
+.list__item {
+  width: calc(50% - var(--list-gap));
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 85%;
+  line-height: 1.3;
+
+  strong {
+    display: block;
+    font-size: 140%;
+    font-weight: 300;
+    color: var(--color-accent);
+    margin-bottom: 5px;
+  }
+}

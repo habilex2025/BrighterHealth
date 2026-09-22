@@ -1,0 +1,30 @@
+childBlocks:
+  - date
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 9d1ba5c3-61da-46c6-8387-a7306e27d0fa # Blocks
+fieldLayouts:
+  8b510e02-efae-452e-8c03-99e6e09b2dc3:
+    tabs:
+      -
+        elementCondition: null
+        name: Main
+        uid: 832fbbdc-8c32-4618-a31c-76418f70c8c4
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: dates
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: Dates
+topLevel: false

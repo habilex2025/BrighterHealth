@@ -1,0 +1,20 @@
+{% set cacheKey = '' %}
+{# {% if id is defined %}
+  {% set cacheKey = 'videoEmbed' ~ id %}
+{% endif %} #}
+
+{% if (item.video is defined and item.video|length) %}
+{% cache using key cacheKey if cacheKey|length %}
+
+{% include '_includes/video-placeholder' with {
+  files: item.video,
+  tracks: null,
+  transcript: item.text,
+  title: item.heading,
+  image: item.image.one() ?? null,
+  useMargins: false,
+  fitToContainer: false
+} %}
+
+{% endcache %}
+{% endif %}

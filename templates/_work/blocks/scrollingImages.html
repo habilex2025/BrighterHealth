@@ -1,0 +1,24 @@
+{% if block.images is not empty %}
+<div class="row row--work theme-white scrolling-images-container" style="--scrolling-images-count: {{ block.images|length }};">
+  <div class="container container--full">
+
+    <div class="scrolling-images-wrapper">
+      <div class="scrolling-images scrolling-images--on-scroll scrolling-images--dir-{{ block.direction }}">
+        {% for i in 1..1 %}
+          {% for image in block.images.all() %}
+            <div class="scrolling-images__image" data-from="bottom">
+              {% if image and image.kind == "image" %}
+                {% include '_includes/picture' with {
+                  image: image,
+                  class: 'scrolling-images__img',
+                } %}
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endif %}

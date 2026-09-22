@@ -1,0 +1,35 @@
+.testimonial__heading {
+  margin-bottom: var(--gutter);
+}
+
+.testimonial__content {
+  padding: 40px 0;
+  border-bottom: 2px solid var(--color-grey);
+}
+
+.testimonial__source {
+  font-size: 140%;
+}
+
+@include breakpoint(mobile) {
+  .testimonial__logo {
+    height: 6em;
+    margin-bottom: 1em;
+  }
+}
+
+@include breakpoint(tablet-up) {
+  .testimonial__content {
+    display: flex;
+    align-items: center;
+  }
+
+  .testimonial__logo {
+    max-height: 8em;
+    max-width: 14em;
+  }
+
+  .testimonial__source {
+    margin-left: var(--gutter);
+  }
+}

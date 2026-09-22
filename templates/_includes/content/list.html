@@ -1,0 +1,8 @@
+<ul class="list">
+  {% for item in block.children.all() %}
+  <li class="list__item">
+    <strong>{{ item.heading|simpleText }}</strong>
+    {{ item.subHeading|simpleText }}
+  </li>
+  {% endfor %}
+</ul>

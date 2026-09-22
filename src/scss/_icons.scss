@@ -1,0 +1,14 @@
+// general icon class
+[class^='icon-'],
+[class*=' icon-'] {
+  display: inline-block;
+}
+
+// svg use symbol icons
+.icon {
+  fill: currentColor;
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  vertical-align: middle;
+}

@@ -1,0 +1,82 @@
+{% set title = title ?? block.heading ?? '' %}
+{% set image = image ?? block.image.one() ?? null %}
+{% set images = images ?? block.images.all() ?? null %}
+{% set videos = videos ?? block.video.all() ?? null %}
+{% set hasImage = image and image.kind == "image" %}
+{% set hasVideo = videos is iterable and videos|length %}
+{% set posterText = posterText ?? block.videoOverlayText ?? 'Watch our <br />showreel' %}
+
+{% if image and image.kind == "image" %}
+  {% set poster = image.getUrl({ width: 680, height: 380, mode: 'crop' }) %}
+{% endif %}
+
+{% if title|length %}
+<div class="row theme-green">
+  <div class="container container--thin content text-center">
+    <h2 class="font-family-text">{{ title|simpleText|raw }}</h2>
+
+    <a href="#showreel-video" class="btn btn--square btn--main anim-float">
+      <svg class="icon btn-arrow-point btn-arrow-point--bottom"><use href="#arrow-right"></use></svg>
+    </a>
+  </div>
+</div>
+{% endif %}
+
+{% if hasImage or hasVideo %}
+<div class="row theme-green mb-sm pt-0 {{ classes ?? '' }}" id="showreel-video">
+  <div class="container container--hd">
+
+    {% include '_includes/video-placeholder' with {
+      files: block.video,
+      image: image,
+      posterText: posterText,
+      useMargins: false
+    } %}
+
+    {# <div class="showreel-outer">
+    <div class="showreel">
+
+      {% if hasVideo %}
+        <button class="showreel__pause-button" id="showreel-pause-{{ entry.id }}">
+          <svg class="icon"><use href="#pause"></use></svg>
+          <span class="visually-hidden">Pause video</span>
+        </button>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const pauseButton = document.querySelector('#showreel-pause-{{ entry.id }}');
+            if (pauseButton) {
+              pauseButton.addEventListener('click', function (event) {
+                const video = this.parentElement.querySelector('video');
+                if (video) {
+                  video.paused ? video.play() : video.pause();
+                  pauseButton.querySelector('.icon use').setAttribute('href', video.paused ? '#play' : '#pause');
+                  pauseButton.querySelector('.visually-hidden').text = video.paused ? 'Play video' : 'Pause video';
+                }
+              });
+            }
+          });
+        </script>
+      {% endif %}
+
+      <div class="showreel__image">
+        {% if hasImage %}
+          {% include '_includes/picture' with {
+            image: image,
+            lazyload: false
+          } %}
+        {% endif %}
+        {% if hasVideo %}
+          <video class="showreel__video" loading="eager" playsinline>
+            {% for video in videos %}
+            <source src="{{ video.url }}" type="{{ video.mimeType }}">
+            {% endfor %}
+          </video>
+        {% endif %}
+      </div>
+
+    </div>
+    </div> #}
+
+  </div>
+</div>
+{% endif %}

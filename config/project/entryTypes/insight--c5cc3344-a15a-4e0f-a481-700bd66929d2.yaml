@@ -1,0 +1,94 @@
+color: null
+fieldLayouts:
+  c0016ad3-b343-43cf-9d92-341019c06a41:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 638ee023-9edd-4224-b6bf-c868b9730bb4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76f7060b-7e68-4d92-9407-bbb3ce96ca6a # Image
+            handle: null
+            instructions: 'Ideal image dimensions: 2000 pixels wide'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 52a1d7d6-3c79-4244-aa84-19a9c94b6ee1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: a4e10478-a847-4bc8-9c32-25f93544822c # Text
+            handle: null
+            instructions: null
+            label: Summary
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: db4dbc36-b1c9-43bc-9aa7-8a644804871c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9d1ba5c3-61da-46c6-8387-a7306e27d0fa # Blocks
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 89324eb2-db0b-41eb-bb92-814093d7ffbd
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: d78eb397-8730-4f15-a5cc-1bce8d5529cb
+        userCondition: null
+handle: insight
+hasTitleField: true
+icon: null
+name: Insight
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

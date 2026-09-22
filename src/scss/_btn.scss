@@ -1,0 +1,181 @@
+.btn {
+  transition: all 0.1s;
+  background-color: var(--color-black);
+  display: inline-flex;
+  color: var(--color-white);
+  border-radius: var(--radius-btn);
+  padding: 15px 30px;
+  text-decoration: none;
+  font: inherit;
+  font-weight: bold;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  appearance: none;
+
+  &:disabled {
+    opacity: 0.3;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px blue;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    height: 105%;
+    width: 0;
+    background-color: var(--color-main);
+    clip-path: polygon(0 0, 100% 0, calc(100% - 15px) 100%, 0 100%);
+    z-index: -1;
+
+    @media (hover: hover) {
+      transition: width 0.2s ease-out;
+    }
+  }
+
+  &:not(:disabled) {
+    &:hover,
+    &.is-active {
+      color: var(--color-accent-dark);
+
+      &::before {
+        width: calc(100% + 20px);
+      }
+    }
+  }
+}
+
+.btn--rounded {
+  border-radius: 999px;
+}
+
+.btn--outline {
+  background-color: transparent;
+  border: 2px solid currentColor;
+  color: var(--color-black);
+}
+
+.btn--small {
+  padding: 10px 30px;
+}
+
+.btn--large {
+  padding: 20px 60px;
+}
+
+.btn--wide {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.btn--talk {
+  transition: all 0.3s;
+
+  &:hover {
+    border-radius: 999px 999px 999px 0;
+    transform: translateY(-5px);
+  }
+}
+
+.btn--square {
+  width: var(--square-width);
+  height: var(--square-width);
+  align-items: center;
+  place-content: center center;
+  padding: 0;
+}
+
+.btn-arrow {
+  margin-left: 30px;
+  margin-right: -20px;
+  font-size: 1.5em;
+  vertical-align: middle;
+  transition: transform 0.2s;
+
+  .btn:hover & {
+    transform: translateX(5px);
+  }
+}
+
+.btn-arrow-point {
+  font-size: 150% !important;
+}
+
+.btn-arrow-point--bottom {
+  transform: rotate(90deg);
+}
+
+.btn-arrow-point--top-right {
+  transform: rotate(-45deg);
+}
+
+.btn--main {
+  color: var(--color-accent-dark);
+  background: var(--color-main);
+
+  &::before {
+    background: var(--color-accent-dark);
+  }
+
+  &:not(:disabled) {
+    &:hover,
+    &.is-active {
+      color: var(--color-white);
+    }
+  }
+
+  .theme-accent & {
+    &:not(:disabled) {
+      &::before {
+        background: var(--color-white);
+      }
+
+      &:hover,
+      &.is-active {
+        color: var(--color-accent-dark);
+      }
+    }
+  }
+}
+
+.btn--accent {
+  color: var(--color-black);
+  background: var(--color-accent);
+
+  &::before {
+    background: var(--color-black);
+  }
+
+  &:not(:disabled) {
+    &:hover,
+    &.is-active {
+      color: var(--color-white);
+    }
+  }
+}
+
+.btn--white {
+  color: var(--color-black);
+  background: var(--color-white);
+
+  &::before {
+    background: var(--color-black);
+  }
+
+  &:not(:disabled) {
+    &:hover,
+    &.is-active {
+      color: var(--color-white);
+    }
+  }
+}
+
+.btn--text-yellow {
+  color: var(--color-main);
+}

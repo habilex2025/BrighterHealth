@@ -1,0 +1,34 @@
+{% set articles = block.insights.all() %}
+{% if articles is empty %}
+  {% set articles = craft.entries.section('insights').limit(3).all() %}
+{% endif %}
+
+{% if articles is not empty %}
+<div class="row theme-accent-light">
+  <div class="container container--wide">
+
+    <div class="text-center mb-lg">
+      <a href="#insights" class="btn btn--square btn--main mb-sm">
+        <svg class="icon btn-arrow-point btn-arrow-point--bottom"><use href="#arrow-right"></use></svg>
+      </a>
+      <h2 class="h1" id="insights">Brighter Health Insights</h2>
+    </div>
+
+    <div class="cards cards--3-up">
+
+      {% for item in articles %}
+        {% include '_insights/card' with { item: item } %}
+      {% endfor %}
+
+    </div>
+
+    <div class="content text-center mt-lg">
+      <a href="/insights/" class="btn btn--large btn--main">
+        View more insights
+        <svg class="icon btn-arrow"><use href="#arrow-right"></use></svg>
+      </a>
+    </div>
+
+  </div>
+</div>
+{% endif %}

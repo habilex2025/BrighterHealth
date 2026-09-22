@@ -1,0 +1,13 @@
+.site {
+  transition: transform 0.5s, background 1s ease-out;
+  background: var(--color-white);
+
+  &.is-menu-open {
+    // transform: translateX(-10em);
+    // overflow: hidden;
+  }
+}
+
+.site__overlay {
+  background: rgba(0, 0, 0, 0.25);
+}

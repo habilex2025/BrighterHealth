@@ -1,0 +1,114 @@
+
+{% set cardIndex = cardIndex ?? loop.index %}
+{% set cardY = cardY ?? '100' %}
+{% set isMinimal = isMinimal ?? false %}
+
+{% set image = item.image.one() %}
+{% set showreelImages = item.images.all() %}
+
+{% set sector = item.sectors.one() %}
+{% set categories = item.categories.all() %}
+
+{% if item.subHeading|length or item.text|length %}
+  {% set summary = (item.subHeading ?? item.text)|striptags %}
+  {% set summary = summary|wordLimit(30, '...') %}
+{% else %}
+  {% set summary = '' %}
+  {% set sep = '' %}
+  {% for block in item.blocks.all() %}
+    {% if block.type == 'text' %}
+      {% set summary = summary ~ sep ~ block.text|striptags %}
+      {% set sep = ' ' %}
+    {% endif %}
+  {% endfor %}
+  {% set summary = summary|wordLimit(30, '...') %}
+{% endif %}
+
+<div class="card block-link{% if showreelImages is not empty %} card--has-showreel{% endif %} card--index-{{ cardIndex }}" data-y="{{ cardY }}">
+  <div class="card__inner">
+    {% if image and image.kind == 'image' %}
+      <div class="card__aside">
+        <div class="btn btn--square btn--white card__arrow">
+          <svg class="icon btn-arrow-point btn-arrow-point--top-right"><use href="#arrow-right"></use></svg>
+        </div>
+        {% include '_includes/picture' with {
+          image: image,
+          class: 'card__image card__image--main',
+          widths: [2000, 1600, 1200, 800, 400, 200, 50]
+        } %}
+        {% if showreelImages is not empty %}
+          <div class="image-showreel card__showreel" id="image-showreel{{ item.id }}">
+            {% for showreelImage in showreelImages %}
+              {% include '_includes/picture' with {
+                image: showreelImage,
+                class: 'card__image image-showreel__image',
+                widths: [2000, 1600, 1200, 800, 400, 200, 50]
+              } %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="card__main">
+      <div class="card__header">
+        <h3 class="card__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+        {% if sector is not empty and not isMinimal %}<div class="card__cat">{{ sector.title }}</div>{% endif %}
+      </div>
+      {% if summary|length %}
+        <p class="card__text">
+          {{ summary}}
+        </p>
+      {% endif %}
+      {% if categories is not empty and not isMinimal %}
+        <div class="card__tags">
+          {% for category in categories %}
+            <div class="card__tag">{{ category.title }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    {% if showreelImages is not empty %}
+      {% set slideDuration = 1 %}
+      {% set transDuration = 1 %}
+      {% set totalDuration = (slideDuration + transDuration) * showreelImages|length %}
+
+      <style>
+        @keyframes slide-show{{ item.id }} {
+          0% {
+            opacity: 1;
+          }
+          {{ slideDuration / totalDuration * 100 }}% {
+            opacity: 1;
+            transform: none;
+          }
+          {{ (slideDuration + transDuration) / totalDuration * 100 }}% {
+            opacity: 0;
+            //transform: translateX(-100%);
+          }
+          {{ 100 - transDuration / totalDuration * 100 }}% {
+            opacity: 0;
+            //transform: translateX(5%);
+          }
+          100% {
+            opacity: 1;
+            transform: none;
+          }
+        }
+
+        #image-showreel{{ item.id }} > * {
+          animation-name: slide-show{{ item.id }};
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+          animation-fill-mode: backwards;
+          animation-duration: {{ totalDuration }}s;
+        }
+
+        {% for showreelImage in showreelImages %}
+          #image-showreel{{ item.id }} > :nth-of-type({{ loop.index }}) {
+            animation-delay: {{ -(slideDuration + transDuration) * loop.index }}s;
+          }
+        {% endfor %}
+      </style>
+    {% endif %}
+  </div>
+</div>

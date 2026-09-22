@@ -1,0 +1,62 @@
+{% set imageAnnette = craft.assets.id(9045).one() ?? null %}
+{% set imageBen = craft.assets.id(9044).one() ?? null %}
+
+<div class="row theme-white">
+  <div class="container container--wide">
+
+    <div class="pull-quotes">
+
+      <div class="pull-quote">
+        <div class="pull-quote__main">
+          <svg class="icon pull-quote__icon"><use href="#quote"/></svg>
+          <div class="pull-quote__copy">
+            <p>Thank you for considering our strategic marketing campaign.</p>
+            <p>Stirling Hospital is launching an exciting new marketing initiative designed to drive referrals and strengthen awareness of the exceptional care provided by our Specialists.</p>
+            <p>This program aims to position both you and the hospital as the preferred choice for care in the region.</p>
+            <p>I look forward to exploring this opportunity with you.</p>
+          </div>
+        </div>
+        <div class="pull-quote__footer">
+          {% if imageAnnette and imageAnnette.kind == "image" %}
+            <div class="pull-quote__photo">
+                <img src="{{ imageAnnette.url }}" alt="Annette Nelson">
+              </div>
+          {% endif %}
+          <div class="pull-quote__info">
+            <strong>Annette Nelson</strong><br />
+            Chief Executive Officer<br />
+            Stirling Hospital<br />
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        <div class="pull-quote__main">
+          <svg class="icon pull-quote__icon"><use href="#quote"/></svg>
+          <div class="pull-quote__copy">
+            <p>It's a pleasure to have the opportunity to work with a group of specialists to build awareness and drive referrals for your practice—supporting the continued success of Stirling Hospital.</p>
+            <p>At Brighter Health, we understand the unique challenges and opportunities within healthcare marketing. Our team recently delivered this program with Burnside Hospital, achieving measurable growth in specialist referrals, brand awareness, and engagement.</p>
+            <p>I look forward to meeting you and sharing how we can support your business.</p>
+          </div>
+        </div>
+        <div class="pull-quote__footer">
+          {% if imageBen and imageBen.kind == "image" %}
+            <div class="pull-quote__photo">
+              <img src="{{ imageBen.url }}" alt="Ben Murray">
+            </div>
+          {% endif %}
+          <div class="pull-quote__info">
+            <strong>Ben Murray</strong><br />
+            Director<br />
+            Brighter Health<br />
+          </div>
+          <div class="pull-quote__logo">
+            <img src="/images/brighter-health.svg" alt="Brighter Health">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

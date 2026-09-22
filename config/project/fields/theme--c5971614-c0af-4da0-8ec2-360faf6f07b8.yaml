@@ -1,0 +1,79 @@
+columnSuffix: lbdvfxjt
+handle: theme
+instructions: null
+name: Theme
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - White
+        -
+          - value
+          - white
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#ffffff'
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Yellow
+        -
+          - value
+          - yellow
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#ffc008'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Green
+        -
+          - value
+          - green
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#024f4c'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Light Green'
+        -
+          - value
+          - green-light
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#e3f7f4'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

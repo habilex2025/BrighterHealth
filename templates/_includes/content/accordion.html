@@ -1,0 +1,29 @@
+<div class="content-width mb-sm mt-lg">
+
+  <h2 class="h1 color-accent">{{ block.heading|simpleText|typogrify }}</h2>
+
+</div>
+
+<div class="accordion-accordion">
+
+  {% for item in block.children.all() %}
+
+      {% set title = item.heading ?? '' %}
+      {% set content = item.subHeading ?? '' %}
+
+      <details class="accordion js-expander-item">
+        <summary class="accordion__heading js-expander-item-toggle">
+          {{ title|simpleText|raw }}
+          <svg class="icon show-collapsed" aria-hidden="true"><use href="#plus"></use></svg>
+          <svg class="icon show-expanded" aria-hidden="true"><use href="#minus"></use></svg>
+        </summary>
+        <div class="dropdown-wrapper">
+          <div class="accordion__content">
+            {{ content|raw }}
+          </div>
+        </div>
+      </details>
+
+  {% endfor %}
+
+</div>

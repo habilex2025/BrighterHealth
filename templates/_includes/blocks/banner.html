@@ -1,0 +1,10 @@
+{% set image = block.image.one() ?? null %}
+{% if image and image.kind == "image" %}
+<div class="banner">
+  {% if image and image.kind == "image" %}
+    {% include '_includes/picture' with {
+      image: image
+    } %}
+  {% endif %}
+</div>
+{% endif %}

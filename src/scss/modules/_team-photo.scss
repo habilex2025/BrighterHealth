@@ -1,0 +1,146 @@
+.team-photo {
+  padding-bottom: calc(var(--gutter) * 0.75);
+  transition: all 1s var(--ease-out) 0.2s;
+
+  .btn {
+    background: var(--color-main);
+    color: var(--color-black);
+
+    &::before {
+      background: var(--color-black);
+    }
+
+    &:not(:disabled) {
+      &:hover,
+      &.is-active {
+        color: var(--color-white);
+      }
+    }
+  }
+
+  &.iv-once:not(.visible) {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.team-photo__heading {
+  margin-bottom: calc(var(--gutter) * 0.75);
+  max-width: 10em;
+}
+
+.team-photo__intro {
+  margin: 0 auto;
+  max-width: 34ch;
+  margin-bottom: calc(var(--gutter) * 0.75);
+}
+
+.team-photo__photo {
+  --aspect-ratio: calc(1196 / 2200 * 100%);
+  @extend .ratio;
+}
+
+.team-photo__photo-bg {
+  width: 100%;
+  height: 100%;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.team-photo__photo-bg-main {
+  transition: filter 0.4s ease;
+  will-change: filter;
+
+  &.faded {
+    @include breakpoint(desktop-up) {
+      filter: grayscale(0.8);
+    }
+  }
+}
+
+.team-photo__photo-bg-person {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transition-delay: 0.2s;
+  pointer-events: none;
+  will-change: opacity;
+
+  &.visible {
+    opacity: 1;
+    transition-delay: 0s;
+  }
+}
+
+.team-photo__photo-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  @include breakpoint(tablet-down) {
+    display: none;
+  }
+}
+
+.team-photo__people-names-slider {
+  max-width: 100%;
+  overflow: hidden;
+  display: none;
+  padding: calc(var(--gutter) * 0.5) 0;
+
+  .swiper:not(.swiper-initialized) {
+    .person-name-slide:not(:first-child) {
+      display: none;
+    }
+  }
+
+  // @include breakpoint(tablet-down) {
+  //   display: block;
+  // }
+}
+
+.people-names-swiper {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(90deg, white, transparent 30%, transparent 70%, white);
+    z-index: 1;
+    pointer-events: none;
+
+    @media (width <= 499px) {
+      background-image: linear-gradient(90deg, white, transparent 5%, transparent 95%, white);
+    }
+  }
+
+  .swiper-wrapper {
+    align-items: center;
+  }
+
+  .swiper-button {
+    display: none;
+    border: 1px solid red;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 33%;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+}
+
+.team-photo__footer {
+  text-align: center;
+  margin-top: calc(var(--gutter) * 0.75);
+}

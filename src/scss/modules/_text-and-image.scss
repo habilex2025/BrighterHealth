@@ -1,0 +1,39 @@
+.text-and-image {
+  display: flex;
+  gap: var(--item-gap);
+
+  @include breakpoint(mobile) {
+    flex-wrap: wrap;
+  }
+
+  @include breakpoint(tablet-up) {
+    // margin-bottom: var(--gutter) !important;
+  }
+}
+
+.text-and-image__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1em;
+  width: 100%;
+
+  @include breakpoint(tablet-up) {
+    width: 40%;
+    transform: translateY(var(--gutter));
+  }
+
+  > * {
+    margin: 0 !important;
+  }
+}
+
+.text-and-image__aside {
+  width: 100%;
+
+  @include breakpoint(tablet-up) {
+    width: 60%;
+  }
+}

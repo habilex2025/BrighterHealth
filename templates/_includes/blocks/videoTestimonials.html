@@ -1,0 +1,39 @@
+
+{% if icon is not defined %}
+  {% set icon = "quote" %}
+{% endif %}
+
+{% if text is not defined %}
+  {% set text = "Brighter&rsquo;s team becomes an extension of <em>your</em> team." %}
+{% endif %}
+
+<div class="video-testimonials">
+  <div class="video-testimonials__media">
+    <video autoplay playsinline muted loop>
+      <source src="/video/homepage_loop.mp4" type="video/mp4">
+    </video>
+
+    <div class="video__overlay">
+      <a
+        class="video__play-button"
+        aria-label="Video testimonials"
+        href="/testimonials"
+      ></a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section video-testimonials__content theme-accent">
+      {% if icon and icon|length %}
+        <svg class="icon video-testimonials__icon"><use href="#{{ icon }}"></use></svg>
+      {% endif %}
+      <h2 class="video-testimonials__heading" style="max-width: 17ch">
+        {{ text|raw }}
+      </h2>
+      <a href="/testimonials" class="btn btn--large btn--main">
+        Read the reviews
+        <svg class="icon btn-arrow"><use href="#arrow-right"/></svg>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="row theme-accent team-feature">
+  <div class="container container--thin">
+
+    {% if block.heading|length %}
+      <div class="content text-center mb-lg">
+        <h3 class="font-family-text anim-slide-in" data-from="bottom">{{ block.heading|simpleText|raw }}</h3>
+      </div>
+    {% endif %}
+
+  </div>
+  <div class="container container--wide">
+
+    <div class="duo">
+
+      {% set image = block.images.one() ?? null %}
+      {% if image and image.kind == "image" %}
+        <div class="photo anim-slide-in" data-from="left">
+          {% if image and image.kind == "image" %}
+            {% include '_includes/picture' with {
+              image: image,
+              class: 'photo__image'
+            } %}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% set image = block.images.offset(1).one() ?? null %}
+      {% if image and image.kind == "image" %}
+        <div class="photo duo-item--scaled anim-slide-in" data-from="right">
+          {% if image and image.kind == "image" %}
+            {% include '_includes/picture' with {
+              image: image,
+              class: 'photo__image'
+            } %}
+          {% endif %}
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="duo duo--offset">
+
+      {% set box = block.children.one() %}
+      {% if box %}
+        <div class="anim-slide-in" data-from="left">
+          <div class="box flow">
+            <div class="box__title">{{ box.heading|simpleText|raw }}</div>
+            <div class="box__text">{{ box.text }}</div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% set box = block.children.offset(1).one() %}
+      {% if box %}
+        <div class="anim-slide-in" data-from="right">
+          <div class="box flow duo-item--offset">
+              <div class="box__title">{{ box.heading|simpleText|raw }}</div>
+              <div class="box__text">{{ box.text }}</div>
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="duo">
+
+      <div class="anim-slide-in" data-from="left" style="position: relative;">
+        {% set image = block.images.offset(2).one() ?? null %}
+        {% if image and image.kind == "image" %}
+          <div class="photo photo--portrait photo--inset">
+            {% if image and image.kind == "image" %}
+              {% include '_includes/picture' with {
+                image: image,
+                class: 'photo__image'
+              } %}
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="anim-slide-in" data-from="right">
+        <a href="/about/" class="btn btn--large btn--main">
+          About our agency
+          <svg class="icon btn-arrow"><use href="#arrow-right"></use></svg>
+        </a>
+      </div>
+
+    </div>
+
+    {# <div class="content text-center mt-lg">
+      <a href="/about/" class="btn btn--large btn--main">
+        Meet our team
+        <svg class="icon btn-arrow"><use href="#arrow-right"></use></svg>
+      </a>
+    </div> #}
+
+  </div>
+</div>

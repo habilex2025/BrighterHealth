@@ -1,0 +1,45 @@
+childBlocks: null
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 3fdc0d42-733c-4913-ac41-b05e21f4e2e2 # Case Study Blocks
+fieldLayouts:
+  9d41db1a-25eb-42ec-896d-3725376b1e5b:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 03a1ee90-60ff-4706-a721-091274dfb481 # Video
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 06fd5277-c1c5-4362-a3e6-4accdd048666
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: 3adb6969-92db-4191-8d3d-836ca31bcdac
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: videoAutoplay
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: 'Video (Autoplay)'
+topLevel: false

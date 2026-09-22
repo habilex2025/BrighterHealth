@@ -1,0 +1,7 @@
+{% extends "_email/templates/inlined/user" %}
+
+{% block content %}
+
+{% if contentHtml|length %}{{ contentHtml }}{% endif %}
+
+{% endblock %}

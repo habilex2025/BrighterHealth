@@ -1,0 +1,57 @@
+{% extends '_layout' %}
+{% set bodyClass = 'page-' ~ entry.slug ~ ' page-custom' %}
+{% if entry.metaTitle|length %}{% set metaTitle = entry.metaTitle %}{% set ogTitle = entry.metaTitle %}{% endif %}
+{% if entry.metaDescription|length %}{% set metaDesc = entry.metaDescription %}{% endif %}
+
+{% block content %}
+
+  {% include '_pages/before/' ~ entry.slug ignore missing %}
+
+  {% if entry.textHandle|length %}
+    {% set embedHandle = entry.textHandle|trim|trim('/') %}
+    {% set packageHtml = customPageContent(embedHandle) %}
+
+    {% if packageHtml %}
+      {% do view.registerCssFile(url('custom/' ~ embedHandle ~ '/styles.css') ~ '?v=20260730c') %}
+
+      {# Seamless inline embed: package CSS/JS are scoped to this wrapper. #}
+      <div
+        class="custom-page custom-page--{{ embedHandle }}"
+        data-custom-page="{{ embedHandle }}"
+        style="--embed-vh: calc(100svh - var(--header-height, 100px));"
+      >
+        {{ packageHtml|raw }}
+      </div>
+
+      <script src="{{ url('custom/' ~ embedHandle ~ '/script.js') }}?v=20260730c" defer></script>
+
+      <style>
+        /*
+          Custom pages sit flush under the sticky header.
+          Keep --scroll-header-height stable when the header auto-hides, otherwise
+          *[id] { scroll-margin-top } changes and the page jumps while scrolling.
+        */
+        body.page-custom #main.is-menu-hidden,
+        body.page-custom #main {
+          --scroll-header-height: var(--header-height);
+        }
+
+        .page-custom .site-body {
+          padding: 0;
+        }
+
+        .page-custom .custom-page {
+          /* Prefer hidden over clip — clip can prevent lazy-loaded images from fetching. */
+          overflow-x: hidden;
+        }
+
+        .page-custom .custom-page [id] {
+          scroll-margin-top: var(--header-height, 100px);
+        }
+      </style>
+    {% endif %}
+  {% endif %}
+
+  {% include '_pages/after/' ~ entry.slug ignore missing %}
+
+{% endblock %}

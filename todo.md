@@ -1,0 +1,56 @@
+- [ ] Reset Craft CMS license key
+- [ ] Hosting details confirmed
+- [ ] Content population
+- [ ] Site proof-read
+- [ ] Google analytics added
+- [ ] Google Search console added
+- [ ] Connect Search console in Google Analytics
+- [ ] Submit to google index
+- [ ] Browser testing
+- [ ] Device testing (mobile, tablet, desktop)
+- [ ] Accessibility testing
+  - [ ] https://www.a11yproject.com/checklist/
+  - [ ] Lighthouse
+  - [ ] Chrome Accessibility Insights
+  - [ ] https://wave.webaim.org/
+- [ ] Lighthouse test completed
+- [ ] Print stylesheet
+- [ ] SEO (meta data, page titles)
+- [ ] Image alt text appropriate
+- [ ] Favicon created
+- [ ] OG Image created
+- [ ] Footer includes copyright & link to Brighter
+- [ ] XML sitemap generated (if complex)
+- [ ] No broken links
+- [ ] Javascript error free
+- [ ] All forms tested
+- [ ] Forms send to correct recipient
+- [ ] Recaptcha added to forms
+- [ ] Setup Sender Authentication for the domain on SendGrid
+- [ ] CMS/Module licenses purchased
+- [ ] CMS/Module licenses are up to date with latest versions
+- [ ] Unused modules and plugins cleaned up
+- [ ] 404 page exists and informative
+- [ ] Database find and replace for dev links to use real domain
+- [ ] Ensure friendly redirects for legacy pages
+- [ ] Ensure ideal image dimensions are setup in the CMS
+- [ ] Ensure caching is implemented where appropriate
+- [ ] Ensure password policy is enforced
+- [ ] Update CMS sysadmin password to something secure
+- [ ] GZIP enabled
+- [ ] Test CMS file upload (if applicable)
+- [ ] All eCommerce functionality tested (if applicable)
+- [ ] Book in training session
+- [ ] SSL certificate installed
+- [ ] Add automatic daily backups
+- [ ] MySQL access lockdown IP 150.101.247.72
+- [ ] Security headers configured & checked https://securityheaders.io
+- [ ] Turn off Ploi "block robots" setting (if applicable)
+- [ ] Add craft queue cron job craft queue/run -v
+- [ ] Add weekly craft cache cron jobcraft clear-caches/temp-files -v
+- [ ] Add 2+7 day later (GA, email sending) reminder into your calendar
+- [ ] Add 3+6 month review reminders into your calendar
+- [ ] Add hosting account note to Sophie's Asana list (if applicable)
+- [ ] Add details to Website master sheet
+- [ ] Reviewed by Dev Team
+- [ ] Approved by Brenton & Ben

@@ -1,0 +1,13 @@
+
+{% set form = block.form.one() ?? null %}
+{% if form %}
+  <div class="theme-green-light" style="padding: var(--gutter); border-radius: var(--radius);">
+    {% if block.heading|length %}
+      <h2 class="h1">{{ block.heading|simpleText|raw }}</h2>
+    {% endif %}
+    {{ block.text|raw }}
+    <div class="form mt-sm">
+      {{ craft.formie.renderForm(form) }}
+    </div>
+  </div>
+{% endif %}

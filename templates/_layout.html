@@ -1,0 +1,386 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+<head>
+  <script>
+    htmlEl = document.querySelector('html');
+    htmlEl.classList.remove('no-js');
+    htmlEl.classList.add('has-js');
+  </script>
+
+  <link rel="canonical" href="{{ craft.app.request.absoluteUrl }}">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+
+  <link rel="stylesheet" href="https://use.typekit.net/lvd5fkq.css">
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180x180 -->
+
+  {% if metaTitle is defined %}
+    {% set pageTitle = metaTitle %}
+    {% set fullTitle = metaTitle %}
+  {% elseif entry.title is defined and entry.title != 'Home' %}
+    {% set pageTitle = entry.title %}
+    {% set fullTitle = entry.title ~ ' - ' ~ siteName %}
+  {% else %}
+    {% set pageTitle = siteName %}
+    {% set fullTitle = siteName %}
+  {% endif %}
+
+  {% set defaultOgImage = url('images/og-image.png') %}
+  {% set siteLogo = url('images/brighter-health.svg') %}
+
+  <title>{{ fullTitle }}</title>
+  <meta name="description" content="{{ metaDesc ?? '' }}">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ ogTitle ?? pageTitle }}">
+  <meta property="og:description" content="{{ metaDesc ?? '' }}">
+  <meta property="og:image" content="{{ ogImage ?? defaultOgImage }}">
+  <meta property="og:url" content="{{ craft.app.request.absoluteUrl }}">
+  <meta property="og:site_name" content="{{ siteName }}">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ ogTitle ?? pageTitle }}">
+  <meta name="twitter:description" content="{{ metaDesc ?? '' }}">
+  <meta name="twitter:image" content="{{ ogImage ?? defaultOgImage }}">
+  <meta name="twitter:url" content="{{ craft.app.request.absoluteUrl }}">
+  {# <meta name="twitter:site" content="@"> #}
+  {# <meta name="twitter:creator" content="@"> #}
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "LocalBusiness",
+    "@id" : "{{ craft.app.request.absoluteUrl }}",
+    "url" : "{{ craft.app.request.absoluteUrl }}",
+    "image" : "{{ ogImage ?? defaultOgImage }}",
+    "logo" : "{{ siteLogo }}",
+    "name": "{{ siteName }}" ,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Suite 1004, Level 10, 147 Pirie Street",
+      "addressLocality": "Adelaide",
+      "addressRegion": "SA",
+      "postalCode": "5000",
+      "addressCountry": "AU"
+    }
+  }
+  </script>
+
+  {% if craft.doTracking %}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TDNKHRXD');</script>
+    <!-- End Google Tag Manager -->
+  {% endif %}
+
+</head>
+
+{% set xData = "{ menuOpen: false,
+  headerStuck: false,
+  contactFormOpen: false }" %}
+
+<body
+  class="{{ bodyClass ?? '' }}"
+  x-data="{{ xData }}"
+  @keydown.escape="menuOpen = false"
+  x-bind:class="{ 'is-menu-open': menuOpen }"
+>
+
+{% if craft.doTracking %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDNKHRXD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% endif %}
+
+{{ svg('images/icons/sprite.svg') }}
+
+<div id="main" class="app">
+
+{% if craft.app.env == 'production' %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQWXCXW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% endif %}
+
+<a class="site-menu__skip-to-content" href="#site-body">
+  Skip to content
+</a>
+
+{{ svg('images/icons/icon-sprites.svg') }}
+
+<div class="site" x-bind:class="{ 'is-menu-open': menuOpen }">
+
+  <nav class="site-menu" aria-hidden="true" x-bind:aria-hidden="String(! menuOpen)">
+    <div class="site-menu__overlay" @click="menuOpen = false"></div>
+
+    <div class="site-menu__inner">
+      {# <button class="site-menu__close" aria-label="Close menu" @click="menuOpen = false;$nextTick(() => { $refs.menuOpenButton.focus(); });" x-ref="menuCloseButton">
+        <svg class="icon"><use href="#close"/></svg>
+      </button> #}
+
+      <ul class="site-menu__items">
+        {% cache globally using key 'site-menu' %}
+          {% set pages = craft.entries.section('pages').inNavigation(1).level('<= 2').all() %}
+          {% nav page in pages %}
+            <li class="{% if page.hasDescendants() %} has-children{% endif %}{{ page.slug == craft.app.request.segments|first ? ' is-here' }}">
+              {% if page.hasDescendants() %}
+                <span class="site-menu__item">{{ page.title }}</span>
+              {% else %}
+                <a class="site-menu__item" href="{{ page.url }}">{{ page.title }}</a>
+              {% endif %}
+              {% ifchildren %}
+                <ul class="site-menu__children">
+                  {% children %}
+                </ul>
+              {% endifchildren %}
+            </li>
+          {% endnav %}
+        {% endcache %}
+      </ul>
+    </div>
+
+    <div class="site-menu__footer">
+      <div class="site-menu__footer-container container container--wide">
+        <div class="content">
+          <div class="site-footer-contact__social">
+            <a href="https://au.linkedin.com/company/brighter-design---australia" class="site-footer-contact__social-icon" target="_blank" rel="me">
+              <svg class="icon" aria-hidden="true"><use href="#linkedin"></use></svg>
+              <span class="visually-hidden">Brighter on LinkedIn</span>
+            </a>
+
+            <a href="https://www.instagram.com/brighter.design/" class="site-footer-contact__social-icon" target="_blank" rel="me">
+              <svg class="icon" aria-hidden="true"><use href="#instagram"></use></svg>
+              <span class="visually-hidden">Brighter on Instagram</span>
+            </a>
+          </div>
+        </div>
+        <div class="site-menu__footer-address">
+          <p>
+            Suite 1004, Level 10<br>
+            147 Pirie Street<br>
+            Adelaide SA 5000
+          </p>
+        </div>
+        <div class="content">
+          <a href="tel:0884332100">08 8433 2100</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header
+    class="site-header"
+    x-bind:class="{ 'is-stuck': headerStuck }"
+    x-on:scroll.window="headerStuck = pageYOffset > 0"
+  >
+    <div class="site-header__container container container--wide">
+
+      <div class="site-header__start">
+        <span class="site-header__talk">{# x-show="headerStuck" #}
+          {% block headerButton %}
+            <a href="/contact" class="btn btn--outline btn--rounded btn--small btn--talk site-header__btn" @click.prevent="contactFormOpen = true;$nextTick(() => { $refs.contactForm.querySelector('.fui-input').focus();});" style="white-space: nowrap;">Let's talk</a>
+          {% endblock %}
+        </span>
+      </div>
+
+      <div class="site-header__middle">
+        <a class="site-header__logo" href="/">
+          <img src="/images/brighter-health.svg" alt="Brighter Health">
+        </a>
+      </div>
+
+      <div class="site-header__end">
+
+        <button class="site-header__menu" aria-label="Open menu" @click="menuOpen = !menuOpen;" x-ref="menuOpenButton">
+          <svg class="icon-closed"><use href="#menu"/></svg>
+          <svg class="icon-opened"><use href="#close"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="site-body" id="site-body">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+
+    {% if entry.slug != 'stirling-hospital-campaign' %}
+    <div class="site-footer-discuss" id="talk">
+      <div class="site-footer-discuss__container container container--wide">
+
+        {# {% set CTAText = null %}
+        {% set isCTARaw = false %}
+        {% if entry.footerCtaText is defined and entry.footerCtaText|length > 0 %}
+          {% set CTAText = entry.footerCtaText %}
+        {% elseif footer.footerCtaText %}
+          {% set CTAText = footer.footerCtaText %}
+        {% else %}
+          {% set isCTARaw = true %}
+          {% set CTAText = "Want to sharpen your brand and cut through the noise? <strong>Let’s talk.</strong>" %}
+        {% endif %} #}
+
+        <h2 class="site-footer-discuss__heading h2">
+        <p><strong>Let's talk.</strong><br /> Get in touch to find out more about our work and how we&nbsp;can&nbsp;help.</p>
+        {# {% if isCTARaw %}
+          {{ CTAText|raw }}
+        {% else %}
+          {{ CTAText }}
+        {% endif %} #}
+
+        </h2>
+        <div class="site-footer-discuss__ben">
+          <div class="site-footer-discuss__buttons">
+            <a href="/contact" class="btn btn--rounded btn--talk" @click.prevent="contactFormOpen = true;$nextTick(() => { $refs.contactForm.querySelector('.fui-input').focus();});"><strong>Email</strong> Ben Murray</a>
+            <a href="tel:0884332100" class="btn btn--rounded btn--talk"><strong>Call</strong> 08 8433 2100</a>
+          </div>
+          <div class="site-footer-discuss__photo">
+            <picture>
+              <source srcset="/images/team/2023/ben_square.jpg" type="image/jpeg">
+              <img src="/images/team/2023/ben_square.jpg" loading="lazy" alt="Ben Murray">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="site-footer-contact">
+      <div class="site-footer-contact__top">
+        <div class="container container--wide">
+          <div class="site-footer-contact__top-inner">
+            <div class="site-footer-contact__address">
+              <p>
+                <strong>
+                  Suite 1004, Level 10<br>
+                  147 Pirie Street<br>
+                  Adelaide SA 5000
+                </strong>
+              </p>
+            </div>
+
+            {# <div class="site-footer-contact__postal">
+              PO Box 84<br>
+              Kensington Park<br>
+              SA 5068
+            </div> #}
+
+            <div class="site-footer-contact__phone-social">
+              <a href="tel:0884332100" class="site-footer-contact__phone">08 8433 2100</a>
+
+              {# <div class="site-footer-contact__social">
+                <p class="site-footer-contact__social-heading">Follow us</p>
+                <a href="https://au.linkedin.com/company/brighter-design---australia" class="site-footer-contact__social-icon" target="_blank" rel="me">
+                  <svg class="icon" aria-hidden="true"><use href="#linkedin"/></svg>
+                  <span class="visually-hidden">Brighter on LinkedIn</span>
+                </a>
+
+                <a href="https://www.instagram.com/brighter.design/" class="site-footer-contact__social-icon" target="_blank" rel="me">
+                  <svg class="icon" aria-hidden="true"><use href="#instagram"/></svg>
+                  <span class="visually-hidden">Brighter on Instagram</span>
+                </a>
+              </div> #}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-footer-contact__bottom">
+        <div class="container container--wide">
+          <div class="site-footer-contact__bottom-inner">
+            <div class="site-footer-contact__subscribe">
+              <h2 class="site-footer-contact__subscribe-heading">Subscribe to updates</h2>
+              <div class="recaptcha-disclaimer-manual">
+                <small>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</small>
+              </div>
+
+              {{ craft.formie.renderForm('subscribe') }}
+
+            </div>
+
+            {# <div class="site-footer-contact__badge">
+              {% include "_includes/site-by-brighter" %}
+            </div> #}
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="site-footer-acknowledgement">
+    <div class="container container--wide">
+      <div class="content">
+        <p>Brighter acknowledges the Traditional Custodians of the land on which we work, and pay our respects to their Elders past and present.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div
+  class="modal"
+  aria-hidden="true"
+  :aria-hidden="String(! contactFormOpen)"
+  @click="contactFormOpen = false"
+>
+  <div class="modal__dialog" @click.stop>
+
+    <button class="modal__close" aria-label="Close menu" @click="contactFormOpen = false">
+      <svg class="icon"><use href="#close"/></svg>
+    </button>
+
+    <div x-ref="contactForm">
+      {% if entry is defined and entry.slug == 'marketingaudit' %}
+
+        <div class="content">
+          <h3 class="h3">Let's accelerate your growth</h3>
+          <p>Start here: Tell us about yourself below by completing the form and Ben will be in contact.</p>
+        </div>
+
+        {{ craft.formie.renderForm('marketingAudit', {
+          id: 'form_marketingAudit'
+        }) }}
+
+
+      {% else %}
+
+        <div class="content">
+          <h3 class="h3">Ready to transform your business?</h3>
+          <p>Leave your details and <strong>Ben Murray</strong> will get in touch shortly.</p>
+        </div>
+
+        {{ craft.formie.renderForm('contact', {
+          id: 'form_contact'
+        }) }}
+
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+<script src="{{ mix('/js/manifest.js') }}"></script>
+<script src="{{ mix('/js/vendor.js') }}"></script>
+<script src="{{ mix('/js/app.js') }}"></script>
+
+<!-- flag -->
+
+</body>
+</html>

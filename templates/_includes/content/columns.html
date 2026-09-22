@@ -1,0 +1,18 @@
+{% if block.children is not empty %}
+  <div class="cols">
+    {% for column in block.children.all() %}
+      <div class="col col--valign-{{ column.verticalFlow }}">
+        {% set prevType = '' %}
+        {% for subBlock in column.children.all() %}
+
+          <div class="col-block col-block--{{ subBlock.type }}">
+            {% include '_includes/content/' ~ subBlock.type ignore missing with { block : subBlock } %}
+          </div>
+
+          {% set prevType = subBlock.type %}
+
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

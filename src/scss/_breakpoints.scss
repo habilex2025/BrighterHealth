@@ -1,0 +1,51 @@
+$size-small-mobile-max: 320px;
+$size-lg-mobile-min: 480px;
+$size-tablet-min: 700px;
+$size-desktop-min: 1000px;
+$size-desktop-hd-min: 1400px;
+$size-mobile-max: $size-tablet-min - 1;
+$size-tablet-max: $size-desktop-min - 1;
+$size-desktop-max: $size-desktop-hd-min - 1;
+
+$queries: (
+  'small-mobile': '(max-width: #{$size-small-mobile-max})',
+  'mobile': '(max-width: #{$size-mobile-max})',
+  'lg-mobile-up': '(min-width: #{$size-lg-mobile-min})',
+  'tablet-up': '(min-width: #{$size-tablet-min})',
+  'tablet': '(min-width: #{$size-tablet-min}) and (max-width: #{$size-tablet-max})',
+  'tablet-down': '(max-width: #{$size-tablet-max})',
+  'desktop-up': '(min-width: #{$size-desktop-min})',
+  'desktop': '(min-width: #{$size-desktop-min}) and (max-width: #{$size-desktop-max})',
+  'desktop-down': '(max-width: #{$size-desktop-max})',
+  'desktop-hd': '(min-width: #{$size-desktop-hd-min})',
+);
+
+@mixin breakpoint($point) {
+  @media #{map-get($queries, $point)} {
+    @content;
+  }
+}
+
+@include breakpoint(mobile) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@include breakpoint(tablet-up) {
+  .hide-tablet-up {
+    display: none !important;
+  }
+}
+
+@include breakpoint(desktop) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+@include breakpoint(tablet-down) {
+  .hide-tablet-down {
+    display: none !important;
+  }
+}

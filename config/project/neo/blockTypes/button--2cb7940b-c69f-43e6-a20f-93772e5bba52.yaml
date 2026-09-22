@@ -1,0 +1,45 @@
+childBlocks: null
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 3fdc0d42-733c-4913-ac41-b05e21f4e2e2 # Case Study Blocks
+fieldLayouts:
+  0aeeb5ee-5647-46ed-aa33-5521a1cc918b:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d5753fb2-9aa3-4b13-8414-2761ba0380b4 # Link
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 961bb845-e6da-4286-ab3f-8f5bb0ab886a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: 625c8a9d-d8c0-490c-a90d-75a68b1b6e49
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: button
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: Button
+topLevel: true

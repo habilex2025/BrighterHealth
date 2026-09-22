@@ -1,0 +1,91 @@
+childBlocks:
+  - image
+  - slideshow
+  - video
+  - videoAutoplay
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 3fdc0d42-733c-4913-ac41-b05e21f4e2e2 # Case Study Blocks
+fieldLayouts:
+  a3254d6e-ee7d-4daf-9041-0158f961d421:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 8bd5c0b2-cff2-4adc-8e27-9aba0f2dde21 # Width
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 75103630-a6d4-4188-940c-0bfeb2c9b0c7
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 82fca3a6-9fce-4152-8f70-aff4bebe9e75 # Height
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6c4feebf-d7eb-441c-be7c-87fa52615acf
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition:
+              class: benf\neo\elements\conditions\BlockCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 82fca3a6-9fce-4152-8f70-aff4bebe9e75 # Height
+                  layoutElementUid: 6c4feebf-d7eb-441c-be7c-87fa52615acf
+                  operator: in
+                  uid: 1a4ae838-894e-4345-a391-1720e18089fd
+                  values:
+                    - customHeightRatio
+              elementType: benf\neo\elements\Block
+              fieldContext: global
+            fieldUid: 2541e8aa-faca-4050-8c53-d5e2eb9081b5 # Custom Height Ratio
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b2ad47a9-a4cd-4420-ae49-0fd4a42d00b0
+            userCondition: null
+            warning: null
+            width: 25
+        name: Main
+        uid: b2ba2213-e76b-4cc4-9a08-76029e97ae07
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: media
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: Media
+topLevel: true

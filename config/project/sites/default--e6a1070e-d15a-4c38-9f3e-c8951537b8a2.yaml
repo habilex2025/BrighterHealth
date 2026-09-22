@@ -1,0 +1,9 @@
+baseUrl: $BASE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: en-AU
+name: $SYSTEM_NAME
+primary: true
+siteGroup: 718bf644-7073-4ed9-856e-70aaefdc461b # Default
+sortOrder: 1

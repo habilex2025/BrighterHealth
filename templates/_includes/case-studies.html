@@ -1,0 +1,42 @@
+{% if items is not empty %}
+<div class="row" id="work">
+  <div class="container container--wide">
+
+    <div class="cards cards--offset">
+
+      {% set cardIndex = 0 %}
+
+      {% for item in items %}
+
+        {% set cardIndex = cardIndex + 1 %}
+        {% if cardIndex > 6 %}
+          {% set cardIndex = 1 %}
+        {% endif %}
+
+        {% set cardY = '100' %}
+        {% if cardIndex in [1, 5] %}
+          {% set cardY = '-100' %}
+        {% endif %}
+
+        {% include '_work/card' with {
+          item: item,
+          cardIndex: cardIndex,
+          cardY: cardY
+        } %}
+
+      {% endfor %}
+
+    </div>
+
+    {% if showMoreBtn %}
+    <div class="content text-center mt-lg">
+      <a href="/projects/" class="btn btn--large btn--main">
+        View all work
+        <svg class="icon btn-arrow"><use href="#arrow-right"></use></svg>
+      </a>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+{% endif %}

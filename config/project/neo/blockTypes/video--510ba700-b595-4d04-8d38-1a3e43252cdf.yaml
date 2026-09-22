@@ -1,0 +1,90 @@
+childBlocks: null
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 3fdc0d42-733c-4913-ac41-b05e21f4e2e2 # Case Study Blocks
+fieldLayouts:
+  f867b017-5d35-473d-b6b2-c5de463a7928:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 03a1ee90-60ff-4706-a721-091274dfb481 # Video
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 859d007e-18bc-427b-8cbc-6f6942faf2cc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76f7060b-7e68-4d92-9407-bbb3ce96ca6a # Image
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6c0f0f5c-5920-4a5a-8729-60a510391302
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 7ba5f023-63ff-4b87-a55b-39ba0fbfa661 # Title
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7feb4da9-2114-4948-a0cf-8f9be403cb33
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: a4e10478-a847-4bc8-9c32-25f93544822c # Text
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f83245e8-d316-4d69-aaaf-e8aedc7551c0
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: 4f354f5a-201d-437c-bdc8-6ff6238f59aa
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: video
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: Video
+topLevel: false

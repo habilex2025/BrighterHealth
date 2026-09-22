@@ -1,0 +1,50 @@
+childBlocks:
+  - heading
+  - text
+  - image
+  - list
+  - shortCode
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 9d1ba5c3-61da-46c6-8387-a7306e27d0fa # Blocks
+fieldLayouts:
+  f4e6f04e-f4a4-46d4-89a1-ffe20fb8067b:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 82f2ba2d-dbdf-4701-a393-2eb5ee79c3be # Vertical Flow
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: efa81cd1-3d68-4156-9e6c-aae580320448
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: 66321bc9-0cd5-4d19-b5e8-08ea3d7a5c35
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: column
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: Column
+topLevel: false

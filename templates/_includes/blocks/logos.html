@@ -1,0 +1,34 @@
+{% set title = block.heading ?? '' %}
+{% set logos = block.images.all() %}
+
+<div class="row row--spacious theme-white">
+  <div class="container container--wide">
+
+    {% if title|length %}
+      <div class="content text-center mb-lg">
+        <h2 class="font-family-text text-bold">{{ title|simpleText|raw }}</h2>
+      </div>
+    {% endif %}
+
+    {% if logos is not empty %}
+      <div class="logos">
+
+        {% for logo in logos %}
+          {% if logo.linkField is not empty %}
+            <a href="{{ logo.linkField.url }}" target="{{ logo.linkField.target }}" class="logo">
+          {% else %}
+            <div class="logo">
+          {% endif %}
+            <img src="{{ logo.url }}" alt="" class="logo__img">
+          {% if logo.linkField is not empty %}
+            </a>
+          {% else %}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+  </div>
+</div>

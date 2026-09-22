@@ -1,0 +1,87 @@
+{% set people = [
+  {
+    'slug': 'sophie',
+    'name': 'Sophie Cook',
+    'position': 'Project Director'
+  },
+  {
+    'slug': 'joel',
+    'name': 'Joel Zerner',
+    'position': 'Web Developer'
+  },
+  {
+    'slug': 'adam',
+    'name': 'Adam Gore',
+    'position': 'Web Developer'
+  },
+  {
+    'slug': 'brenton',
+    'name': 'Brenton Murray',
+    'position': 'Creative Director'
+  },
+  {
+    'slug': 'mallory',
+    'name': 'Mallory Larcombe',
+    'position': 'Designer'
+  },
+  {
+    'slug': 'rebecca',
+    'name': 'Rebecca Murray',
+    'position': 'Administration Manager'
+  },
+  {
+    'slug': 'ben',
+    'name': 'Ben Murray',
+    'position': 'Director'
+  },
+  {
+    'slug': 'edward',
+    'name': 'Edward Loxton',
+    'position': 'Designer'
+  },
+  {
+    'slug': 'jeremy',
+    'name': 'Jeremy Driver',
+    'position': 'Web Developer'
+  },
+  {
+    'slug': 'grace',
+    'name': 'Grace Mackay',
+    'position': 'Designer'
+  },
+] %}
+
+<div class="team-photo iv-once" id="team">
+  <div class="team-photo__photo">
+    <div class="team-photo__photo-inner">
+      <div class="team-photo__photo-bg js-people-highlights">
+        <img src="/images/team/2023/group/brighter-group-2024.jpg" alt="The Brighter team." class="team-photo__photo-bg-main js-team-photo">
+        {% for person in people %}
+          <img src="/images/team/2023/group/brighter-group-2024-{{ person.slug }}.png" alt="" class="team-photo__photo-bg-person js-person-png" data-person="{{ person.slug }}" aria-hidden="true">
+        {% endfor %}
+      </div>
+
+      <div class="team-photo__photo-overlay">
+        {% include '_includes/people-labels.html' with { people: people } %}
+      </div>
+    </div>
+  </div>
+
+  <div class="team-photo__people-names-slider">
+    <div class="swiper people-names-swiper">
+      <div class="swiper-wrapper">
+        {% for person in people %}
+          <div class="swiper-slide person-name-slide" data-person="{{ person.slug }}">
+            <p class="person-name-slide__text">
+              <span class="person-name-slide__name">{{ person.name }}</span>
+              {# <span class="person-name-slide__position">{{ person.position }}</span> #}
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-button swiper-button-prev"></div>
+      <div class="swiper-button swiper-button-next"></div>
+    </div>
+  </div>
+</div>

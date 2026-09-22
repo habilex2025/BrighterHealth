@@ -1,0 +1,12 @@
+.content-image {
+  margin-top: var(--gutter);
+  margin-bottom: var(--gutter);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

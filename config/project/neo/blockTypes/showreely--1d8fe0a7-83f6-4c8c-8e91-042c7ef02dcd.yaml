@@ -1,0 +1,120 @@
+childBlocks: null
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 9d1ba5c3-61da-46c6-8387-a7306e27d0fa # Blocks
+fieldLayouts:
+  f65b4653-274a-4e6f-933f-a03c8ae2cca4:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c5971614-c0af-4da0-8ec2-360faf6f07b8 # Theme
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e6ba78d5-cabf-4ad5-84ea-0eaeecbe1733
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 7ba5f023-63ff-4b87-a55b-39ba0fbfa661 # Title
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2f498fd3-5546-459b-89fd-7c1ab4ba9903
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 03a1ee90-60ff-4706-a721-091274dfb481 # Video
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24899ad0-ed88-4542-b248-461e136d4fe5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76f7060b-7e68-4d92-9407-bbb3ce96ca6a # Image
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9601f4b2-b42f-4542-bdc5-bc6a02b7f0aa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-10T21:56:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 95ea6219-925c-436d-8e70-587bed47accd # Simple Text
+            handle: videoOverlayText
+            instructions: 'Defaults to: Watch our showreel'
+            label: 'Video Overlay Text'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 78317a60-e57f-497c-bebd-ad4922072696
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-10T21:56:11+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d158ee24-32e1-445f-9cf2-83f2239c4393 # Show Arrow?
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a7a5eb51-f67e-4929-9878-3565a19e7e1c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: d68fb0c1-9f45-4764-88d7-dae13fb5e525
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: showreely
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: Showreely
+topLevel: true

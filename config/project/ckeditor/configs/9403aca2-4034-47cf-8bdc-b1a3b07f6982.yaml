@@ -1,0 +1,72 @@
+css: '@import "/css/ckeditor.css";'
+headingLevels:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: Standard
+options:
+  heading:
+    options:
+      -
+        model: paragraph
+        title: Paragraph
+      -
+        model: heading1
+        title: 'Heading 1'
+        view: h1
+      -
+        model: heading2
+        title: 'Heading 2'
+        view: h2
+      -
+        model: heading3
+        title: 'Heading 3'
+        view: h3
+      -
+        model: heading4
+        title: 'Heading 4'
+        view: h4
+      -
+        model: heading5
+        title: 'Heading 5'
+        view: h5
+      -
+        model: heading6
+        title: 'Heading 6'
+        view: h6
+  htmlSupport:
+    allow:
+      -
+        attributes:
+          class: true
+          style: true
+  style:
+    definitions:
+      -
+        classes:
+          - text-xs
+        element: p
+        name: 'Small Text'
+      -
+        classes:
+          - text-lg
+        element: p
+        name: 'Large Text'
+toolbar:
+  - heading
+  - style
+  - '|'
+  - bold
+  - italic
+  - bulletedList
+  - numberedList
+  - horizontalLine
+  - insertTable
+  - insertImage
+  - link
+  - mediaEmbed
+  - htmlEmbed
+  - sourceEditing

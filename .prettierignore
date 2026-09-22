@@ -1,0 +1,10 @@
+# Ignore artifacts:
+/config
+/modules
+/public_html
+/recipes
+/storage
+/templates
+/vendor
+
+# Ignore files:

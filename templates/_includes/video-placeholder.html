@@ -1,0 +1,114 @@
+{% set type = type ?? 'hosted' %}
+{% set files = files ?? null %}
+{% set tracks = tracks ?? true %}
+{% set transcript = transcript ?? '' %}
+{% set useMargins = useMargins ?? true %}
+{% set fitToContainer = fitToContainer ?? false %}
+{% set videos = files.all() ?? null %}
+{% set image = image ?? null %}
+{% set preview = preview ?? null %}
+{% set poster = null %}
+{% set posterText = posterText ?? '' %}
+{% set title = (title ?? '')|striptags %}
+
+{% set exists = false %}
+{% if (type == 'hosted' and videos is iterable and videos|length) or
+      (type == 'external' and url|length) %}
+  {% set exists = true %}
+{% endif %}
+
+{% if image and image.kind == "image" %}
+  {% set poster = image.getUrl({ width: 680, height: 380, mode: 'crop' }) %}
+{% elseif type == 'external' %}
+  {% set poster = generateVideoThumbnail(url) %}
+{% endif %}
+
+{% set showImage = (poster or preview) ? true : false %}
+
+<div class="video-placeholder{{ useMargins ? ' mt mb' }}{{ fitToContainer ? ' video-placeholder--fit' : ' video-placeholder--default' }}">
+
+  {% if exists %}
+    <div class="video-placeholder__main">
+
+      {% if showImage %}
+      <button
+        class="video-placeholder__thumbnail"
+        data-hosted="{{ type == 'hosted' ? 'true' : 'false' }}">
+        {% if preview %}
+          <video autoplay playsinline muted loop>
+            <source src="{{ preview.url }}" type="{{ preview.mimeType }}">
+          </video>
+        {% elseif poster %}
+          <img src="{{ poster }}" alt="Click to play video: {{ title }}">
+        {% endif %}
+        <div class="video-placeholder__play">
+          {% if posterText|length %}<div class="video-placeholder__play-text">{{ posterText|raw }}</div>{% endif %}
+          <div class="video-placeholder__play-icon"></div>
+        </div>
+      </button>
+      {% endif %}
+
+      {% if type == 'hosted' %}
+
+        <video
+          {% if showImage %}hidden{% endif %}
+          class="video-placeholder__video"
+          controls
+          playsinline
+          preload="none"
+          title="{{ title }}"
+          {% if poster %}poster="{{ poster }}"{% endif %}>
+
+          {% for video in videos %}
+          <source src="{{ video.url }}" type="{{ video.mimeType }}">
+          {% endfor %}
+
+          {% set tracks = tracks.all() ?? null %}
+          {% for track in tracks %}
+            {% set file = track.file.one() ?? null %}
+            {% if file and file.extension == 'vtt' %}
+              <track label="{{ track.languageLabel }}" kind="{{ track.kind }}" src="{{ file.url }}" srclang="{{ track.languageCode }}"{{ track.default ? ' default' }}>
+            {% endif %}
+          {% endfor %}
+
+        </video>
+
+      {% else %}
+
+        <iframe
+          {% if showImage %}hidden{% endif %}
+          class="video-placeholder__video video-placeholder__video--iframe"
+          src="{{ generateVideoEmbedUrl(url, { autoplay: 1, rel: 0, showinfo: 0 }) }}"
+          {% if showImage %}srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href={{ generateVideoEmbedUrl(url, { autoplay: 1, rel: 0, showinfo: 0 }) }}><img src='{{ poster }}' alt='Click to play video: {{ title }}'><noscript><span>▶</span></noscript></a>"{% endif %}
+          title="{{ title }}"
+          frameborder="0"
+          scrolling="0"
+          referrerpolicy="strict-origin"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+
+      {% endif %}
+
+    </div>
+
+    {# {% if transcript and transcript|length %}
+      <div class="accordion-accordion">
+        <details class="accordion">
+          <summary class="accordion__head">
+            <div class="accordion__head-inner">
+              <div class="accordion__head-title">
+                View video transcript
+              </div>
+              <svg class="icon"><use href="#arrow"></use></svg>
+            </div>
+          </summary>
+          <div class="accordion__body content theme-white">
+            {{ transcript }}
+          </div>
+        </details>
+      </div>
+    {% endif %} #}
+
+  {% endif %}
+</div>

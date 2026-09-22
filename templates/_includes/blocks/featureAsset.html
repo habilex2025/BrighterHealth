@@ -1,0 +1,75 @@
+{% set title = title ?? block.heading ?? '' %}
+{% set image = image ?? block.image.one() ?? null %}
+{% set images = images ?? block.images.all() ?? null %}
+{% set videos = videos ?? block.video.all() ?? null %}
+{% set hasImage = image and image.kind == "image" %}
+{% set hasVideo = videos is iterable and videos|length %}
+{% set hasTeam = false %}
+{% set isHome = (entry.slug ?? '') == '__home__' ? true : false %}
+{% if hasImage and image.filename == 'Brighter-Staff.jpg' %}
+  {% set hasTeam = true %}
+  {% set hasImage = false %}
+{% endif %}
+
+{% if title|length %}
+<div class="row{% if hasImage or hasVideo or hasTeam %} pb-xs{% endif %}">
+  <div class="container content text-center">
+    <h1>{{ title|simpleText|raw }}</h1>
+  </div>
+</div>
+{% endif %}
+
+{% if hasImage or hasVideo or hasTeam %}
+<div class="row pt-0 {{ classes ?? '' }}{{ isHome ? ' theme-half-green' : ' mb-sm' }}">
+  <div class="container container--hd">
+
+    <div class="showreel-outer">
+    <div class="showreel">
+
+      {% if hasVideo %}
+        <button class="showreel__pause-button" id="video-pause-{{ entry.id }}">
+          <svg class="icon"><use href="#pause"></use></svg>
+          <span class="visually-hidden">Pause video</span>
+        </button>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const pauseButton = document.querySelector('#video-pause-{{ entry.id }}');
+            if (pauseButton) {
+              pauseButton.addEventListener('click', function (event) {
+                const video = this.parentElement.querySelector('video');
+                if (video) {
+                  video.paused ? video.play() : video.pause();
+                  pauseButton.querySelector('.icon use').setAttribute('href', video.paused ? '#play' : '#pause');
+                  pauseButton.querySelector('.visually-hidden').text = video.paused ? 'Play video' : 'Pause video';
+                }
+              });
+            }
+          });
+        </script>
+      {% endif %}
+
+      <div class="showreel__image">
+        {% if hasImage %}
+          {% include '_includes/picture' with {
+            image: image,
+            lazyload: false
+          } %}
+        {% endif %}
+        {% if hasVideo %}
+          <video class="showreel__video" loading="eager" autoplay muted loop playsinline>
+            {% for video in videos %}
+            <source src="{{ video.url }}" type="{{ video.mimeType }}">
+            {% endfor %}
+          </video>
+        {% endif %}
+        {% if hasTeam %}
+          {% include '_includes/team' %}
+        {% endif %}
+      </div>
+
+    </div>
+    </div>
+
+  </div>
+</div>
+{% endif %}

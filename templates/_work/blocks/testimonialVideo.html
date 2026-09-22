@@ -1,0 +1,30 @@
+{% set testimonial = block.testimonial.one() %}
+{% if testimonial %}
+  {% set preview = testimonial.videoPreview.one() %}
+  {% set videos = testimonial.video %}
+  {% set logo = testimonial.image.one() %}
+
+  <div class="row row--work theme-white">
+    <div class="container">
+
+      <div class="testimonial">
+        {% include '_includes/video-placeholder' with {
+          class: 'testimonial__video',
+          title: testimonial.title,
+          preview: preview,
+          files: videos,
+          useMargins: false
+        } %}
+
+        <div class="testimonial__content">
+          <img class="testimonial__logo" src="{{ logo.url }}" alt="{{ testimonial.company }}">
+          <div class="testimonial__source">
+            <strong>{{ testimonial.source }}</strong><br>
+            {{ testimonial.position }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endif %}

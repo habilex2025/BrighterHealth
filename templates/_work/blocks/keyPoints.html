@@ -1,0 +1,16 @@
+<div class="row row--work row--work-text theme-white">
+  <div class="container text-center">
+
+    <div>
+      <ul class="key-points">
+        {% for line in block.simpleList|split('\n') %}
+          <li class="key-points__item anim-slide-in">
+            <svg class="icon"><use xlink:href="#plus"></use></svg>
+            <span>{{ line }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+</div>

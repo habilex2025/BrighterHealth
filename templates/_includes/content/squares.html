@@ -1,0 +1,8 @@
+<ul class="squares">
+  {% for item in block.children.all() %}
+  <li class="squares__item anim-slide-in" data-from="bottom" data-delay="{{ loop.index * 50 }}">
+    <strong>{{ item.heading|simpleText }}</strong>
+    {{ item.subHeading|simpleText }}
+  </li>
+  {% endfor %}
+</ul>

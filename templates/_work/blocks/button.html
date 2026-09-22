@@ -1,0 +1,18 @@
+
+{% set text = 'Learn more' %}
+{% set vhText = '' %}
+{% if block.linkField.text != block.linkField.url and (block.linkField.text != block.linkField.getElement().title ?? null) %}{% set text = block.linkField.text %}{% endif %}
+{% if text == 'Learn more' and (block.linkField.getElement().title ?? null) %}
+  {% set vhText = ' about ' ~ block.linkField.getElement().title %}
+{% endif %}
+
+<div class="row row--work theme-white">
+  <div class="container container--wide text-center">
+
+    <a href="{{ block.linkField.url ?? '/' }}" target="{{ block.linkField.target }}" class="btn btn--large btn--main">
+      <span>{{ text|raw }}{% if vhText|length %}<span class="visually-hidden">{{ vhText }}</span>{% endif %}</span>
+        <svg class="icon btn-arrow"><use href="#arrow-right"></use></svg>
+    </a>
+
+  </div>
+</div>

@@ -1,0 +1,259 @@
+:root {
+  --card-gap: var(--item-gap);
+  --card-offset: 200px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--card-gap);
+
+  > * {
+    width: 100%;
+
+    @include breakpoint(tablet-up) {
+      width: calc(50% - var(--card-gap) / 2);
+    }
+  }
+
+  &.cards--offset {
+    @include breakpoint(tablet-up) {
+      > * {
+        &:nth-child(3n) {
+          width: 100%;
+          margin: 0 var(--card-gap);
+        }
+      }
+    }
+  }
+
+  &.cards--3-up {
+    @include breakpoint(tablet-up) {
+      > * {
+        width: calc(33.33% - var(--card-gap) * 0.67);
+      }
+    }
+  }
+}
+
+.card {
+  display: block;
+  overflow: hidden;
+
+  .cards--offset & {
+    @include breakpoint(tablet-up) {
+      &:nth-child(6n + 1) {
+        margin-bottom: calc(var(--card-offset) * 1);
+      }
+
+      &:nth-child(6n + 2) {
+        transform: translateY(calc(var(--card-offset) * 1));
+      }
+
+      &:nth-child(6n + 4) {
+        transform: translateY(calc(var(--card-offset) * 1));
+      }
+
+      &:nth-child(6n + 5) {
+        margin-bottom: calc(var(--card-offset) * 1);
+      }
+    }
+  }
+}
+
+.card__aside {
+  position: relative;
+  background: var(--color-light-grey);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  .cards--offset .card:nth-child(3n) & {
+    @include breakpoint(tablet-up) {
+      &::before {
+        padding-top: 50%;
+      }
+    }
+  }
+}
+
+.card__image {
+  transition: opacity 0.4s ease, transform 1s var(--ease-out);
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+
+  img,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card:hover &,
+  .card:focus & {
+    &:not(.image-showreel__image) {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.card__image--main {
+  .card.card--has-showreel:hover &,
+  .card.card--has-showreel:focus-visible & {
+    opacity: 0;
+  }
+}
+
+.card__arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  transform: translate3d(100%, -100%, 0);
+
+  .card:hover .card__aside &,
+  .card:focus .card__aside & {
+    &:not(:disabled) {
+      color: var(--color-black);
+      background: var(--color-white);
+      transform: translate3d(0, 0, 0);
+
+      &::before {
+        width: 0;
+      }
+    }
+  }
+}
+
+.card__main {
+  padding: 25px 0;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.card__title {
+  font-size: 150%;
+  font-weight: 700;
+
+  .card--article & {
+    font-size: 130%;
+  }
+}
+
+.card__text {
+  font-size: 120%;
+
+  .card--article & {
+    font-size: 100%;
+  }
+}
+
+.card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card__tag {
+  display: flex;
+  align-items: center;
+  font-size: 90%;
+  color: var(--color-accent-dark);
+  text-decoration: none;
+
+  &:not(:last-child)::after {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--color-accent-dark);
+    margin: 0 10px;
+  }
+}
+
+.card__cat {
+  display: block;
+  border: 2px solid var(--color-main);
+  border-radius: 5px;
+  padding: 5px 8px 4px;
+  text-transform: uppercase;
+  font-size: 72%;
+  line-height: 1;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s var(--ease-in-out);
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  text-align: center;
+
+  @include breakpoint(tablet-down) {
+    flex: 0 1 0;
+  }
+
+  .card:hover &,
+  .card:focus & {
+    background-color: var(--color-main);
+    color: var(--color-black);
+  }
+}
+
+.card__btn {
+  .card:hover &,
+  .card:focus & {
+    &:not(:disabled) {
+      color: var(--color-white);
+
+      &::before {
+        width: calc(100% + 20px);
+      }
+    }
+  }
+}
+
+.image-showreel.card__showreel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  max-width: none;
+  padding: 0 !important;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  .card:hover &,
+  .card:focus-visible & {
+    opacity: 1;
+  }
+
+  > * {
+    .card:not(:hover, :focus-visible) & {
+      animation-play-state: paused;
+    }
+  }
+}

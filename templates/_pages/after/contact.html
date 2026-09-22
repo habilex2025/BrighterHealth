@@ -1,0 +1,74 @@
+
+
+  <div class="contact-page">
+
+    <div class="contact-page__form theme-accent pt-lg pb-lg">
+      <div class="container">
+        <h1 class="contact-page__form-title h2">Let&rsquo;s talk about<br> what&rsquo;s possible</h1>
+
+        <p>
+          Send us a message and we’ll be in touch soon.
+        </p>
+
+        {{ craft.formie.renderForm('contact', {
+          class: "contact-page__freeform",
+          id: 'form_contact'
+        }) }}
+      </div>
+    </div>
+
+    <div class="contact-page__details pt-lg">
+      <div class="container container--wide content pb-lg" style="margin-left: 0;">
+        {# <h2 class="h2">Keen to meet?</h2>
+
+        <p>
+          Let&rsquo;s grab coffee - it&rsquo;s our shout
+        </p> #}
+
+        <div class="contact-page__address">
+          <div>
+            <p>
+              <strong>Office</strong> <br>
+              Suite 1004, Level&nbsp;10<br />
+              147 Pirie&nbsp;Street<br />
+              Adelaide SA 5000<br>
+              <br>
+              <strong>Call</strong><br>
+              <a href="tel:0884332100">08 8433 2100</a>
+            </p>
+          </div>
+
+          <div>
+            {# <p>
+              <strong>Post</strong><br>
+              PO Box 84<br>
+              Kensington&nbsp;Park<br>
+              SA 5068<br>
+              <br>
+            </p> #}
+            <div class="site-footer-contact__social">
+              <a href="https://au.linkedin.com/company/brighter-design---australia" class="site-footer-contact__social-icon" target="_blank" rel="me">
+                <svg class="icon" aria-hidden="true"><use href="#linkedin"/></svg>
+                <span class="visually-hidden">Brighter on LinkedIn</span>
+              </a>
+
+              <a href="https://www.instagram.com/brighter.design/" class="site-footer-contact__social-icon" target="_blank" rel="me">
+                <svg class="icon" aria-hidden="true"><use href="#instagram"/></svg>
+                <span class="visually-hidden">Brighter on Instagram</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-page__location">
+        <div class="contact-page__map" id="map"></div>
+        {# <div class="contact-page__building">
+          <img src="/images/footer-contact-us.jpg" alt="An illustration of a person climbing on a ladder through a speech-bubble-shaped hole, while holding a piece of paper.">
+        </div> #}
+      </div>
+    </div>
+
+  </div>
+
+  {% include '_includes/map' %}

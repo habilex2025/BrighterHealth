@@ -1,0 +1,105 @@
+childBlocks: null
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 9d1ba5c3-61da-46c6-8387-a7306e27d0fa # Blocks
+fieldLayouts:
+  25af9081-0a99-45e7-bf79-1b7d5c918d54:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c5971614-c0af-4da0-8ec2-360faf6f07b8 # Theme
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 001402fc-26fe-4194-91c3-43584e6ebe2f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9cbe2df3-c731-411f-bd48-e6783b7110da # Images
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4ce55f70-79a1-4429-9d20-2487da60883d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 7ba5f023-63ff-4b87-a55b-39ba0fbfa661 # Title
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2ab42dcf-082e-459f-a715-d4e12aef14ee
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-11T02:30:52+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 09b809a8-e188-47db-b40a-ab8d489ddf2f # Subtitle
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 277c86ec-0833-4969-a712-24a5a7843b66
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-12T02:39:24+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 03a1ee90-60ff-4706-a721-091274dfb481 # Video
+            handle: null
+            instructions: '(Will override second image)'
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 583d358b-4a64-410f-b4f6-bcae4419ca61
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: b23dd565-3ba6-457f-81e2-70f53e16fd33
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: imageLockup
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: 'Image Lockup'
+topLevel: true

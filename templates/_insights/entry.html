@@ -1,0 +1,29 @@
+{% extends '_layout' %}
+{% set bodyClass = 'page-' ~ entry.slug %}
+{% if entry.metaTitle|length %}{% set metaTitle = entry.metaTitle %}{% set ogTitle = entry.metaTitle %}{% endif %}
+{% if entry.metaDescription|length %}{% set metaDesc = entry.metaDescription %}{% endif %}
+{% if entry.pageBanner|length %}{% set ogImage = entry.pageBanner.one().url %}{% endif %}
+
+{% block content %}
+
+  {# {% include '_includes/title' with { showTitle: true } %} #}
+
+  {% include '_includes/blocks/featureAsset' with {
+    title: entry.title,
+    image: entry.image.one(),
+    classes: 'mt-0'
+  } %}
+
+  <div class="row theme-white text-center pt-0">
+    <div class="container container--thin">
+
+      <div class="content">
+        <p class="intro">{{ (entry.text)|simpleText|deOrphan|typogrify|raw }}</p>
+      </div>
+
+    </div>
+  </div>
+
+  {% include '_includes/blocks' with { blocks: entry.blocks.level(1).all() } %}
+
+{% endblock %}

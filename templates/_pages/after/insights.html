@@ -1,0 +1,17 @@
+{% set articles = craft.entries.section('insights').all() %}
+
+{% if articles is not empty %}
+<div class="row">
+  <div class="container container--wide">
+
+    <div class="cards cards--3-up">
+
+      {% for item in articles %}
+        {% include '_insights/card' with { item: item } %}
+      {% endfor %}
+
+    </div>
+
+  </div>
+</div>
+{% endif %}

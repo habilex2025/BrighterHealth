@@ -1,0 +1,15 @@
+{% if (showTitle ?? entry.showTitle) %}
+<div class="row theme-white text-center">
+  <div class="container container--standard">
+
+    <div class="page">
+      <div class="page__main content">
+        <div class="text-block">
+          <h1>{{ (entry.pageTitle ?? entry.title)|simpleText|typogrify|raw }}</h1>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endif %}

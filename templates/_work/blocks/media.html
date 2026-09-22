@@ -1,0 +1,87 @@
+{% set width = block.width == 'wide' ? 'full' : (block.width == 'thin' ? 'wide' : 'hd') %}
+{% if block.children is not empty %}
+<div class="row row--work theme-white">
+  <div class="container container--{{ width }}">
+
+    <div class="media-row anim-quick-slide-in{{ block.children|length > 1 ? ' media-row--multiple' }}">
+      {% for item in block.children.all() %}
+
+        {% if item.type == 'image' %}
+
+          {% set image = item.image.one() %}
+          {% if image and image.kind == "image" %}
+            <div class="media-row__item"{% if block.height == 'useImageHeight' %} style="--media-row-ratio: calc({{ ceil(image.height / image.width * 100) }}%);"{% endif %}>
+              {% include '_includes/picture' with {
+                image: image
+              } %}
+            </div>
+          {% endif %}
+
+        {% elseif item.type == 'slideshow' %}
+
+          {% set image = item.images.one() %}
+          {% if block.height == 'useImageHeight' and image and image.kind == "image" %}
+            {% set customHeightRatio = ceil(image.height / image.width * 100) %}
+          {% endif %}
+
+          {% if image and image.kind == "image" %}
+            <div class="media-row__item media-row__item--slideshow"{% if (customHeightRatio ?? null) %} style="--media-row-ratio: calc({{ customHeightRatio }}%);{% endif %}">
+              {% include '_includes/slideshow' with { item: item } %}
+            </div>
+          {% endif %}
+
+        {% elseif item.type == 'video' %}
+
+          {% set image = item.image.one() %}
+          {% if block.height == 'useImageHeight' and image and image.kind == "image" %}
+            {% set customHeightRatio = ceil(image.height / image.width * 100) %}
+          {% elseif block.height == 'customHeightRatio' %}
+            {% set customHeightRatio = block.customHeightRatio %}
+          {% endif %}
+
+          <div class="media-row__item media-row__item--video"{% if (customHeightRatio ?? null) %} style="--media-row-ratio: calc({{ customHeightRatio }}%);"{% endif %}>
+            {% include '_work/blocks/video' with { item: item } %}
+          </div>
+
+        {% elseif item.type == 'videoAutoplay' %}
+
+          {% if block.height == 'customHeightRatio' %}
+            {% set customHeightRatio = block.customHeightRatio %}
+          {% endif %}
+
+          <div class="media-row__item media-row__item--video-autoplay"{% if (customHeightRatio ?? null) %} style="--media-row-ratio: calc({{ customHeightRatio }}%);"{% endif %}>
+            {% set videos = item.video.all() %}
+            <video loading="eager" autoplay muted loop playsinline>
+              {% for video in videos %}
+              <source src="{{ video.url }}" type="{{ video.mimeType }}">
+              {% endfor %}
+            </video>
+            {# <button class="showreel__pause-button" id="video-pause-{{ entry.id }}">
+              <svg class="icon"><use href="#pause"></use></svg>
+              <span class="visually-hidden">Pause video</span>
+            </button>
+            <script>
+              document.addEventListener('DOMContentLoaded', () => {
+                const pauseButton = document.querySelector('#video-pause-{{ entry.id }}');
+                if (pauseButton) {
+                  pauseButton.addEventListener('click', function (event) {
+                    const video = this.parentElement.querySelector('video');
+                    if (video) {
+                      video.paused ? video.play() : video.pause();
+                      pauseButton.querySelector('.icon use').setAttribute('href', video.paused ? '#play' : '#pause');
+                      pauseButton.querySelector('.visually-hidden').text = video.paused ? 'Play video' : 'Pause video';
+                    }
+                  });
+                }
+              });
+            </script> #}
+          </div>
+
+        {% endif %}
+
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+{% endif %}

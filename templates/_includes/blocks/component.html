@@ -1,0 +1,6 @@
+{% set component = block.component.one() %}
+{% if component %}
+  {% for block in component.blocks %}
+    {% include '_includes/blocks/' ~ block.type ignore missing %}
+  {% endfor %}
+{% endif %}

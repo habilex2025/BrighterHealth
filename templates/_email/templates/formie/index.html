@@ -1,0 +1,84 @@
+{% extends "_email/templates/inlined/admin" %}
+
+{% block content %}
+
+<div style="border: 3px solid #f1f1f1; border-radius: 5px; overflow: hidden;">
+<table width="100%">
+  <tr>
+    <th align="left" style="text-align: left; font-size: 14px; line-height: 20px; font-family: Helvetica, arial, sans-serif; color: #333333; border-bottom: 1px solid #f1f1f1; padding: 10px; background: #f9f9f9;" width="40%">
+      Form
+    </th>
+    <td align="left" style="text-align: left; font-size: 14px; line-height: 20px; font-family: Helvetica, arial, sans-serif; color: #333333; border-bottom: 1px solid #f1f1f1; padding: 10px; background: #f9f9f9;">
+      {{ form.title }}
+    </td>
+  </tr>
+  <tr>
+    <th align="left" style="text-align: left; font-size: 14px; line-height: 20px; font-family: Helvetica, arial, sans-serif; color: #333333; border-bottom: 1px solid #f1f1f1; padding: 10px; background: #f9f9f9;" width="40%">
+      Date
+    </th>
+    <td align="left" style="text-align: left; font-size: 14px; line-height: 20px; font-family: Helvetica, arial, sans-serif; color: #333333; border-bottom: 1px solid #f1f1f1; padding: 10px; background: #f9f9f9;">
+      {{ submission.dateCreated|date('l, F j, Y \\a\\t g:ia') }}
+    </td>
+  </tr>
+  <tr>
+    <td>
+
+    </td>
+  </tr>
+  {% for field in submission.getCustomFields() %}
+    {% set value = submission.getFieldValue(field.handle) %}
+    <tr>
+      <th align="left" style="text-align: left; font-size: 14px; line-height: 20px; font-family: Helvetica, arial, sans-serif; color: #333333; border-bottom: 1px solid #f1f1f1; padding: 10px;" width="40%">
+        {{ field.label }}
+      </th>
+      <td align="left" style="text-align: left; font-size: 14px; line-height: 20px; font-family: Helvetica, arial, sans-serif; color: #333333; border-bottom: 1px solid #f1f1f1; padding: 10px;">
+        {% if value is iterable %}
+
+          {% for key1, value1  in value %}
+            {% if key1 in ['autocomplete'] %}
+            {% else %}
+              {% if not key1 matches '/^\d+$/' %}{{ key1|title }}: {% endif %}
+              {% if value1 is iterable %}
+                {% for key2, value2  in value1 %}
+                  {% if not key2 matches '/^\d+$/' %}{{ key2|title }}: {% endif %}
+                  {% if value2|length %}{{ value2 }}<br />{% endif %}
+                {% endfor %}
+              {% else %}
+                {% if value1|length %}{{ value1 }}<br />{% endif %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+        {% elseif value in ['Please select...', 'Please select'] %}
+        {% elseif 'Categories' in field.type %}{{ value.one().title ?? '-' }}
+        {% elseif 'FileUpload' in field.type %}{{ value.one().filename ?? '-' }}
+        {% elseif 'Date' in field.type %}{{ value|date('j M Y') }}
+        {% elseif 'Signature' in field.type %}<img src="data:image/png;base64,{{ value }}">
+        {% elseif value %}{{ value }}{% endif %}
+      </td>
+    </tr>
+    {# {% if value is iterable %}
+      {% for key, value  in value %}
+        {% if key in ['autocomplete'] %}
+        {% else %}
+        <tr>
+          <th align="left" style="text-align: left; font-size: 14px; line-height: 20px; font-family: Helvetica, arial, sans-serif; color: #333333; border-bottom: 1px solid #f1f1f1; padding: 10px;" width="40%">
+            {{ key|title }}
+          </th>
+          <td align="left" style="text-align: left; font-size: 14px; line-height: 20px; font-family: Helvetica, arial, sans-serif; color: #333333; border-bottom: 1px solid #f1f1f1; padding: 10px;">
+            {% if value is iterable %}
+              {{ value|json_encode }}
+            {% else %}
+              {{ value }}
+            {% endif %}
+          </td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+    {% endif %} #}
+  {% endfor %}
+  {% if contentHtml|length %}<tr><td colspan="2">{{ contentHtml }}</td></tr>{% endif %}
+</table>
+</div>
+
+{% endblock %}

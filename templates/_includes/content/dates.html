@@ -1,0 +1,11 @@
+{% set items = block.children.all() ?? [] %}
+{% if items|length %}
+  <div class="dates">
+    {% for item in items %}
+      <div class="date">
+        <p class="date__title">{{ item.heading|simpleText|raw }}</p>
+        <p class="date__date">{{ item.subHeading|simpleText|raw }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

@@ -1,0 +1,265 @@
+.people-labels-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.people-labels {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.person-label {
+  --x: 0%;
+  --y: 0%;
+  --text-x: 0%;
+  --line-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='49.382'%3E%3Cg fill='none'%3E%3Cpath d='M0 .382h19v49H0z'/%3E%3Cpath stroke='%23000' stroke-dasharray='2 2' d='M3.375 48.379S.181 46.985.809 27.955 11.397.379 11.397.379'/%3E%3C/g%3E%3C/svg%3E");
+  --line-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='49.382'%3E%3Cg fill='none'%3E%3Cpath d='M0 .382h19v49H0z'/%3E%3Cpath stroke='%23000' stroke-dasharray='2 2' d='M15.623 48.38s3.194-1.394 2.566-20.424S7.601.38 7.601.38'/%3E%3C/g%3E%3C/svg%3E");
+  --line-bg: var(--line-left);
+
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  pointer-events: auto;
+  z-index: 1;
+  border-radius: 100%;
+
+  &:focus-visible {
+    outline-offset: 4px;
+    outline-width: 2px;
+  }
+}
+
+.person-label.visible {
+  .person-label__text > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .person-label__name {
+    transition-delay: 0.3s;
+  }
+
+  .person-label__position {
+    transition-delay: 0.2s;
+  }
+
+  .person-label__dot {
+    outline: 3px solid white;
+    transition-delay: 0s;
+    transition-duration: 0.05s;
+
+    @include breakpoint(tablet-down) {
+      opacity: 1;
+      transition-delay: 0s;
+      transition-duration: 0.1s;
+    }
+
+    &::before {
+      clip-path: inset(-1%);
+      transition-delay: 0s;
+      transition-duration: 0.2s;
+    }
+  }
+}
+
+.person-label__text {
+  position: absolute;
+  top: -3.6rem;
+  transform: translate(var(--text-x), -100%);
+  text-align: center;
+  font-size: 70%;
+  cursor: default;
+
+  @include breakpoint(desktop-hd) {
+    top: -5.6rem;
+    font-size: 80%;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 1em);
+    height: calc(100% + 1em);
+    z-index: -1;
+  }
+
+  > * {
+    display: block;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(25%);
+    transition: 0.2s ease;
+    transition-property: opacity, transform;
+  }
+}
+
+.person-label__name {
+  font-weight: 700;
+}
+
+// .person-label__position {
+// }
+
+.person-label__dot {
+  position: relative;
+  width: 0.5625rem;
+  height: 0.5625rem;
+  background: var(--color-main);
+  border: 1px solid black;
+  border-radius: 100%;
+  outline: 0 solid white;
+  transition: outline 0.1s ease;
+  transition-delay: 0.4s;
+
+  @include breakpoint(tablet-down) {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    transition-delay: 0s;
+  }
+
+  // Dotted line
+  // File source: /src/icons/dotted-curved-line-[left|right].svg
+  // Converted to css with https://yoksel.github.io/url-encoder/
+  &::before {
+    content: '';
+    position: absolute;
+    height: 3rem;
+    width: 1.19rem;
+    left: 50%;
+    top: -0.3rem;
+    transform: translate(-50%, -100%);
+    background-image: var(--line-bg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 0.3s ease;
+    transition-delay: 0.1s;
+
+    @include breakpoint(desktop-hd) {
+      height: 5rem;
+      width: 1.75rem;
+    }
+  }
+}
+
+.people-labels-targets {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  svg {
+    display: block;
+  }
+
+  .target {
+    pointer-events: auto;
+  }
+}
+
+// Specific positioning of people
+.person-label--sophie {
+  --x: 9%;
+  --y: 23%;
+  --text-x: -6%;
+}
+
+.person-label--joel {
+  --x: 26%;
+  --y: 19.5%;
+  --text-x: -86%;
+  --line-bg: var(--line-right);
+}
+
+.person-label--adam {
+  --x: 35%;
+  --y: 19%;
+  --text-x: -86%;
+  --line-bg: var(--line-right);
+}
+
+.person-label--brenton {
+  --x: 43%;
+  --y: 25%;
+  --text-x: -81%;
+  --line-bg: var(--line-right);
+}
+
+.person-label--mallory {
+  --x: 51.5%;
+  --y: 36%;
+  --text-x: -78%;
+  --line-bg: var(--line-right);
+}
+
+.person-label--rebecca {
+  --x: 54.5%;
+  --y: 25%;
+  --text-x: -21%;
+}
+
+.person-label--ben {
+  --x: 65.5%;
+  --y: 28.5%;
+  --text-x: 4%;
+}
+
+.person-label--edward {
+  --x: 80%;
+  --y: 20.5%;
+  --text-x: -86%;
+  --line-bg: var(--line-right);
+}
+
+.person-label--jeremy {
+  --x: 82.5%;
+  --y: 38%;
+}
+
+.person-label--grace {
+  --x: 95.5%;
+  --y: 25.5%;
+  --text-x: -90%;
+  --line-bg: var(--line-right);
+}
+
+@include breakpoint(tablet-down) {
+  .person-label__text {
+    display: none;
+  }
+
+  .person-label__dot::before {
+    display: none;
+  }
+}
+
+.person-name-slide {
+  // width: 12rem !important;
+  transition: opacity 0.2s ease;
+
+  &:not(.swiper-slide-active) {
+    opacity: 0.5;
+  }
+
+  & + & {
+    margin-top: 0 !important;
+  }
+}
+
+.person-name-slide__text {
+  text-align: center;
+
+  > * {
+    display: block;
+  }
+}
+
+.person-name-slide__name {
+  font-weight: 700;
+}

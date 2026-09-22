@@ -1,0 +1,60 @@
+childBlocks: null
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 9d1ba5c3-61da-46c6-8387-a7306e27d0fa # Blocks
+fieldLayouts:
+  5e4b2903-6af0-4e09-89cd-78adde0de203:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 7ba5f023-63ff-4b87-a55b-39ba0fbfa661 # Title
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e2c55e95-dfb0-41e4-bf39-8f6f31830c8f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9cbe2df3-c731-411f-bd48-e6783b7110da # Images
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c9eb94bb-66fa-4aeb-a91b-3a1520c82e9f
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: 3ddd8a64-e794-4a3a-bb9b-be89888fa5cf
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: logos
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: Logos
+topLevel: true

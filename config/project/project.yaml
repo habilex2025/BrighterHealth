@@ -1,0 +1,532 @@
+dateModified: 1787621619
+elementSources:
+  craft\elements\Entry:
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: '*'
+      tableAttributes:
+        - section
+        - postDate
+        - expiryDate
+        - link
+      type: native
+    -
+      heading: Singles
+      type: heading
+    -
+      heading: Structures
+      type: heading
+    -
+      disabled: false
+      key: 'section:83f53c01-d842-4fe2-b950-e7335263b429' # Pages
+      tableAttributes:
+        - slug
+        - type
+        - 'field:2fac89e5-9780-4ef9-a21d-026378b42494' # In Navigation?
+        - 'field:6533cb2a-5b24-4fab-a3ca-0afb70f66195' # In Sitemap?
+        - link
+      type: native
+    -
+      defaultSort:
+        - structure
+        - asc
+      disabled: false
+      key: 'section:b18decac-4358-44a4-abe8-f56de851e177' # Case Studies
+      tableAttributes:
+        - 'field:8cf1f097-d827-4281-bf0b-97e23a16e485' # Sectors
+        - 'field:dd3672dd-f788-44c5-99bc-145cc8a5a50e' # Categories
+        - link
+      type: native
+    -
+      key: 'section:2415dd2e-a194-43ce-ae87-d7c7cfeb23ca' # Insights
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:2c783317-0513-48a3-b5ae-ab8c08062b85' # Sectors
+      tableAttributes:
+        - postDate
+        - expiryDate
+        - link
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:6d530671-7fbf-4db1-86fa-2b2ebcabfc4e' # Categories
+      tableAttributes:
+        - postDate
+        - expiryDate
+        - link
+      type: native
+    -
+      key: 'section:f375f8d9-19ba-4f6c-88f6-968f9e63ebfc' # Components
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      disabled: false
+      key: 'section:873c1720-4722-45db-a99d-37a5c93a9e2f' # Testimonials
+      tableAttributes:
+        - postDate
+        - expiryDate
+        - link
+      type: native
+email:
+  fromEmail: $SENDER_EMAIL
+  fromName: $SENDER_NAME
+  replyToEmail: null
+  template: null
+  transportSettings:
+    encryptionMethod: $SMTP_ENCR
+    host: $SMTP_HOST
+    password: $SMTP_PASS
+    port: $SMTP_PORT
+    timeout: '10'
+    useAuthentication: $SMTP_AUTH
+    username: $SMTP_USER
+  transportType: craft\mail\transportadapters\Smtp
+fs:
+  uploads:
+    hasUrls: true
+    name: Uploads
+    settings:
+      path: '@webroot/uploads'
+    type: craft\fs\Local
+    url: '@baseUrl/uploads'
+meta:
+  __names__:
+    1c30ee8d-5b00-4a68-b607-bd2eafacb623: 'Scrolling Images' # Scrolling Images
+    1d8fe0a7-83f6-4c8c-8e91-042c7ef02dcd: Showreely # Showreely
+    1edccab0-ec60-4ad4-ae0b-b603ae4fad5d: 'Meta Description' # Meta Description
+    2c783317-0513-48a3-b5ae-ab8c08062b85: Sectors # Sectors
+    2cb7940b-c69f-43e6-a20f-93772e5bba52: Button # Button
+    2fac89e5-9780-4ef9-a21d-026378b42494: 'In Navigation?' # In Navigation?
+    03a1ee90-60ff-4706-a721-091274dfb481: Video # Video
+    3c9b9ef4-7e6a-46c3-8cd0-4a774b80287a: Heading # Heading
+    3cdbae73-d5fd-4e2d-99f7-1898859ff884: 'Feature Image/Video' # Feature Image/Video
+    3f290abe-8ce9-4c80-a5aa-3508796b24f4: 'List Item' # List Item
+    3fdc0d42-733c-4913-ac41-b05e21f4e2e2: 'Case Study Blocks' # Case Study Blocks
+    4a4bf880-a9d9-456a-be5e-797f7a01266f: Image # Image
+    4ee3845f-fc92-4ef5-b8fc-e404032d0bf0: Image # Image
+    4f5a9ab9-73a8-489c-ae4b-48b7d707381d: Testimonial # Testimonial
+    5a096e4c-c0fa-4f31-9434-ecd5473f4658: 'Brighter Default' # Brighter Default
+    5d667fdb-9b2b-4042-8f08-58a2730fa13b: Component # Component
+    6abe7a0e-f0b1-4341-83cc-d29d62899a76: 'Short Code' # Short Code
+    6b9046db-adca-4032-9fd5-eb2b1c98b6bf: Test # Test
+    6d23541c-ee3e-439a-b305-cfa4d9ce39e4: 'Public Schema' # Public Schema
+    6d530671-7fbf-4db1-86fa-2b2ebcabfc4e: Categories # Categories
+    6e5eaa4f-d0ec-4bf5-af86-f2841bfc7e33: 'Show Title?' # Show Title?
+    7a7e57bb-886d-496c-a1d5-93abd97ffe02: 'Redirect URL' # Redirect URL
+    7ba5f023-63ff-4b87-a55b-39ba0fbfa661: Title # Title
+    8bd5c0b2-cff2-4adc-8e27-9aba0f2dde21: Width # Width
+    8bf2897a-fb09-4d63-8424-50e464ff872d: 'Alt Text' # Alt Text
+    8cc7acdf-8e75-49a9-8d3e-011d91cd3969: Sectors # Sectors
+    8cf1f097-d827-4281-bf0b-97e23a16e485: Sectors # Sectors
+    9a19c71b-a605-4af8-9179-55c3ec308744: Section # Section
+    09b809a8-e188-47db-b40a-ab8d489ddf2f: Subtitle # Subtitle
+    9cbe2df3-c731-411f-bd48-e6783b7110da: Images # Images
+    9d1ba5c3-61da-46c6-8387-a7306e27d0fa: Blocks # Blocks
+    13cd44c4-1353-4043-874b-72aa61278ab8: Align # Align
+    021e77d5-d09a-4910-b652-9a95e126eb34: 'Display Title' # Display Title
+    25ec63e2-0017-47f6-99ab-68e6d6b3e0cb: Insights # Insights
+    32a1bb57-7677-4fa0-a168-074dd0ffd158: 'Contact Form' # Contact Form
+    38c7d442-f1e7-4e1e-a300-52a671d2cffa: Handle # Handle
+    41a51930-6f6c-4358-a2ec-a51120302674: 'Team Feature' # Team Feature
+    47e79b57-e553-41fe-9857-5bbb0df8709d: Box # Box
+    55ed0f0d-445c-4864-94f1-69e673704198: Testimonial # Testimonial
+    057def59-c74d-4096-b1cb-97c293944b79: 'OG Image' # OG Image
+    59c8634c-3015-4abf-b600-c0d1e518889e: Component # Component
+    76f7060b-7e68-4d92-9407-bbb3ce96ca6a: Image # Image
+    82f2ba2d-dbdf-4701-a393-2eb5ee79c3be: 'Vertical Flow' # Vertical Flow
+    82fca3a6-9fce-4152-8f70-aff4bebe9e75: Height # Height
+    83f53c01-d842-4fe2-b950-e7335263b429: Pages # Pages
+    89ca0be3-e6b6-48bc-90c9-dcf94ae80e46: Form # Form
+    92abbd0d-a461-418c-8764-d1a0951bf413: List # List
+    95ea6219-925c-436d-8e70-587bed47accd: 'Simple Text' # Simple Text
+    96bee33f-779e-47b8-9d1a-49e671ea6da2: 'Meta Title' # Meta Title
+    00120a96-2f7d-4718-bed2-de128e99bbbf: Arrow # Arrow
+    410b7264-fcb4-4888-b371-af5521b463d3: Banner # Banner
+    510ba700-b595-4d04-8d38-1a3e43252cdf: Video # Video
+    615e6e55-c0e9-471a-8ea9-60fb2c2e022a: Default # Default
+    718bf644-7073-4ed9-856e-70aaefdc461b: Default # Default
+    873c1720-4722-45db-a99d-37a5c93a9e2f: Testimonials # Testimonials
+    912e6dd4-f24a-4783-b5ea-842ed7a381f0: Form # Form
+    1803d1ed-a27a-4a61-a515-b3268ac9206b: 'Sub Nav' # Sub Nav
+    2415dd2e-a194-43ce-ae87-d7c7cfeb23ca: Insights # Insights
+    2541e8aa-faca-4050-8c53-d5e2eb9081b5: 'Custom Height Ratio' # Custom Height Ratio
+    3068d999-899e-4ff0-b642-8dfb0c005a61: Uploads # Uploads
+    3177b8ba-b84f-49f0-b293-6aa0016a9bac: 'Testimonial (Text)' # Testimonial (Text)
+    4813fa95-b125-4a95-854a-59a52b78cce0: Colour # Colour
+    6533cb2a-5b24-4fab-a3ca-0afb70f66195: 'In Sitemap?' # In Sitemap?
+    9403aca2-4034-47cf-8bdc-b1a3b07f6982: Standard # Standard
+    9996fde4-e31d-447c-8a75-3338e3e11785: Slideshow # Slideshow
+    36371a84-151e-4185-9a80-2c9671d0265f: New # New
+    72516bff-c649-46d2-80c7-764477ad22e1: Redirect # Redirect
+    125048ee-07df-469a-b001-5d794d528e50: 'Text and Image' # Text and Image
+    a04ff862-61f1-41ac-b751-c46a387f68fb: Date # Date
+    a4e10478-a847-4bc8-9c32-25f93544822c: Text # Text
+    a6c58ed6-7801-47e8-9703-6b2609b634a6: 'Image Lockup' # Image Lockup
+    a1425fc8-c20c-4a20-9a1f-81242afb4788: Simple # Simple
+    a2148bc7-ce67-419b-b0d1-570eeaeb833a: 'Brighter Default' # Brighter Default
+    b0361185-12ed-4efb-a080-7187269ac4a7: Text # Text
+    b18decac-4358-44a4-abe8-f56de851e177: 'Case Studies' # Case Studies
+    b21b9ab6-fdfd-4d7a-ac3c-c467bc405eba: Content # Content
+    b60adfd8-15d5-4ec0-9da6-ff29d63a1686: 'Campaign Monitor' # Campaign Monitor
+    b61681cb-b083-4d60-b799-5df5831c39b1: Direction # Direction
+    b85666d6-1fc4-4c95-9fc4-628a86c75988: Button # Button
+    ba1f16be-b803-4108-9c74-63b770efb3e1: 'Team Members' # Team Members
+    ba3a9f61-03a9-4f67-ba16-a9754f28a4cd: Insights # Insights
+    bdc589d9-d9ff-4250-94d3-a12972f5dff8: Columns # Columns
+    becb4a12-53a8-4b1d-8814-11d7e69586e7: Media # Media
+    c4b0163a-d071-4675-a78e-87ef508899b8: Category # Category
+    c4bbd563-f5b5-4ccb-94ae-f448e6be170a: Banner # Banner
+    c5cc3344-a15a-4e0f-a481-700bd66929d2: Insight # Insight
+    c5971614-c0af-4da0-8ec2-360faf6f07b8: Theme # Theme
+    cda68bb7-6cca-4c0d-b042-b053faee37c1: 'Key Points' # Key Points
+    d0dcd96b-41c5-4c54-aa44-cc423ed4e6e1: Link # Link
+    d19ac960-5a60-496b-ba1a-a13ad6562f9a: 'Case Studies' # Case Studies
+    d76fa348-09d7-48d0-81e4-63b9624762f0: Video # Video
+    d158ee24-32e1-445f-9cf2-83f2239c4393: 'Show Arrow?' # Show Arrow?
+    d5753fb2-9aa3-4b13-8414-2761ba0380b4: Link # Link
+    d6333c27-6277-42cf-87bd-82ac87d70252: 'Testimonial (Video)' # Testimonial (Video)
+    d6944d4b-3dae-463c-ab58-9f5a73a0e3dd: 'Simple List' # Simple List
+    dd3672dd-f788-44c5-99bc-145cc8a5a50e: Categories # Categories
+    dd27901a-81f8-4670-bcd5-93e47c5be53d: Column # Column
+    e06f80dc-6bb5-48a9-8c05-1f458af0a55d: 'Case Studies' # Case Studies
+    e6a1070e-d15a-4c38-9f3e-c8951537b8a2: $SYSTEM_NAME # $SYSTEM_NAME
+    e9ee03b2-eee9-4e30-b132-8a74a868de95: Files # Files
+    ec7a02ea-4e69-4c48-9f7e-a69ca413d3b5: 'Video (Autoplay)' # Video (Autoplay)
+    ec55d1dd-69f7-41a5-8654-697aeeac92ae: Squares # Squares
+    ecb1e1db-62b7-45ea-9714-1dd4c7d7f8c4: Component # Component
+    ef4d893e-c7d6-4143-a85a-73af29e9e043: Logos # Logos
+    ef9001a4-3b8c-41a9-92b9-646dbd122118: Dates # Dates
+    f4ec3cad-2687-490e-9aa1-00931a49ef11: 'Video Testimonials' # Video Testimonials
+    f7f14f31-3da3-40e4-b2ff-9f34a8126999: Text # Text
+    f9cf31fc-18e0-4e27-901b-63d840fb08ab: Sector # Sector
+    f10b88e6-c2b6-4ccc-9702-b5beabf6dc7b: Accordion # Accordion
+    f375f8d9-19ba-4f6c-88f6-968f9e63ebfc: Components # Components
+    fb0ca944-c6ac-4767-97e0-96edc3e8ddb0: 'Custom Page' # Custom Page
+    fd4258e8-5540-4255-abe9-2b8750c36fff: Border # Border
+    ff637886-ad44-47c0-9096-f747e07506c7: Page # Page
+plugins:
+  assetrev:
+    enabled: '1'
+    licenseKey: null
+    schemaVersion: 1.0.0
+    settings: null
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
+  cp-css:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      additionalCss: ''
+      cssFile: /css/cp.css
+  field-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      cpSectionEnabled: ''
+  formie:
+    edition: standard
+    enabled: true
+    licenseKey: AD6AJE1CUOPZW8KJCZQAY97H
+    schemaVersion: 3.4.12
+    settings:
+      ajaxTimeout: 10
+      alertEmails: null
+      captchas:
+        __assoc__:
+          -
+            - recaptcha
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Recaptcha
+                -
+                  - enabled
+                  - $RECAPTCHA_ENABLED
+                -
+                  - saveSpam
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - recaptcha
+                      -
+                        - secretKey
+                        - $RECAPTCHA_SECRET_KEY
+                      -
+                        - siteKey
+                        - $RECAPTCHA_SITE_KEY
+                      -
+                        - type
+                        - v3
+                      -
+                        - size
+                        - normal
+                      -
+                        - theme
+                        - light
+                      -
+                        - badge
+                        - bottomright
+                      -
+                        - language
+                        - en
+                      -
+                        - minScore
+                        - 0.5
+                      -
+                        - scriptLoadingMethod
+                        - asyncDefer
+                      -
+                        - enterpriseType
+                        - score
+          -
+            - hcaptcha
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Hcaptcha
+                -
+                  - enabled
+                  - '0'
+                -
+                  - saveSpam
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      0:
+                        - handle
+                        - hcaptcha
+                      3:
+                        - size
+                        - normal
+                      4:
+                        - theme
+                        - light
+                      5:
+                        - language
+                        - en
+                      6:
+                        - minScore
+                        - 0.5
+                      7:
+                        - scriptLoadingMethod
+                        - asyncDefer
+          -
+            - friendlyCaptcha
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\FriendlyCaptcha
+                -
+                  - enabled
+                  - '0'
+                -
+                  - saveSpam
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      0:
+                        - handle
+                        - friendlyCaptcha
+                      3:
+                        - language
+                        - en
+          -
+            - turnstile
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Turnstile
+                -
+                  - enabled
+                  - '0'
+                -
+                  - saveSpam
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      0:
+                        - handle
+                        - turnstile
+                      3:
+                        - scriptLoadingMethod
+                        - asyncDefer
+          -
+            - duplicate
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Duplicate
+                -
+                  - enabled
+                  - '1'
+                -
+                  - saveSpam
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - duplicate
+          -
+            - honeypot
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Honeypot
+                -
+                  - enabled
+                  - '1'
+                -
+                  - saveSpam
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - honeypot
+          -
+            - javascript
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Javascript
+                -
+                  - enabled
+                  - '1'
+                -
+                  - saveSpam
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - javascript
+      defaultDateDisplayType: calendar
+      defaultDateTime: null
+      defaultDateValueOption: ''
+      defaultEmailTemplate: ''
+      defaultFileUploadVolume: ''
+      defaultFormTemplate: ''
+      defaultInstructionsPosition: verbb\formie\positions\AboveInput
+      defaultLabelPosition: verbb\formie\positions\AboveInput
+      defaultPage: forms
+      emptyValuePlaceholder: 'No response.'
+      enableBackSubmission: true
+      enableCsrfValidationForGuests: true
+      enableLargeFieldStorage: false
+      enableUnloadWarning: true
+      includeDraftElementUsage: false
+      includeRevisionElementUsage: false
+      maxIncompleteSubmissionAge: 30
+      maxSentNotificationsAge: 30
+      pdfPaperOrientation: portrait
+      pdfPaperSize: letter
+      pluginName: Formie
+      queuePriority: null
+      saveSpam: true
+      sendEmailAlerts: false
+      sentNotifications: true
+      setOnlyCurrentPagePayload: false
+      spamBehaviour: showSuccess
+      spamBehaviourMessage: ''
+      spamEmailNotifications: false
+      spamKeywords: ''
+      spamLimit: 500
+      useQueueForIntegrations: true
+      useQueueForNotifications: true
+      validateCustomTemplates: true
+  hyper:
+    edition: standard
+    enabled: true
+    licenseKey: LSRRMM2TDPLY47FCYDNUX8WQ
+    schemaVersion: 1.0.0
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      assetSourceSettings:
+        1:
+          __assoc__:
+            -
+              - enabled
+              - '1'
+            -
+              - imageWidth
+              - ''
+            -
+              - imageHeight
+              - ''
+            -
+              - imageQuality
+              - ''
+      enabled: '1'
+      imageHeight: '2048'
+      imageQuality: '100'
+      imageWidth: '2048'
+      nonDestructiveCrop: false
+      nonDestructiveResize: ''
+      skipLarger: '1'
+  imager-x:
+    edition: lite
+    enabled: true
+    licenseKey: DT7TGS91OI0XWUHZPDKPFNNB
+    schemaVersion: 4.0.0
+  mix-manifest:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  neo:
+    edition: standard
+    enabled: true
+    licenseKey: VYNHDN2KQ8E1366PDISP223E
+    schemaVersion: 5.1.0.1
+  typogrify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: $SYSTEM_NAME
+  schemaVersion: 5.9.0.8
+  timeZone: Australia/Adelaide

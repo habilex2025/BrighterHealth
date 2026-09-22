@@ -1,0 +1,11 @@
+handle: brighterDefault
+name: 'Brighter Default'
+outputCssLayout: true
+outputCssLocation: page-header
+outputCssTheme: false
+outputJsBase: true
+outputJsLocation: page-footer
+outputJsTheme: true
+sortOrder: null
+template: null
+useCustomTemplates: false

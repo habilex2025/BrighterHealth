@@ -1,0 +1,148 @@
+:root {
+  @include breakpoint(small-mobile) {
+    --gutter: 20px;
+    --gutter-work: 10px;
+  }
+
+  @include breakpoint(mobile) {
+    --gutter: 30px;
+    --gutter-work: 20px;
+  }
+
+  @include breakpoint(tablet-up) {
+    --gutter: 60px;
+    --gutter-work: 40px;
+  }
+}
+
+.row {
+  padding: var(--gutter) 0;
+  position: relative;
+}
+
+.row--work {
+  padding: var(--gutter-work) 0;
+}
+
+.row--work-text {
+  padding: calc(var(--gutter-work) * 1.5) 0 !important;
+}
+
+.row--spacious {
+  padding: calc(var(--gutter) * 2) 0 !important;
+
+  .row--spacious + & {
+    padding-top: 0 !important;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.container--wide {
+  max-width: 1400px;
+}
+
+.container--hd {
+  max-width: 1900px;
+
+  // max-width: calc(70vw + var(--gutter) * 2);
+}
+
+.container--thin {
+  max-width: 1000px;
+}
+
+.container--full {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@mixin row($gap: 20) {
+  display: flex;
+  margin: 0 $gap * 0.5 * -1;
+}
+
+@mixin children($x, $gap: 20) {
+  > * {
+    @include col($x, $gap);
+  }
+}
+
+@mixin col($x, $gap: 20) {
+  margin: 0 $gap * 0.5;
+  width: calc(100% / #{$x} - #{$gap});
+}
+
+.cols {
+  display: flex;
+  align-items: stretch;
+  gap: var(--gutter);
+
+  @include breakpoint(mobile) {
+    flex-wrap: wrap;
+  }
+
+  > * {
+    flex-grow: 1;
+    flex-basis: 0;
+
+    @include breakpoint(mobile) {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter);
+}
+
+.col--valign-top {
+  justify-content: flex-start;
+}
+
+.col--valign-spread {
+  justify-content: space-between;
+}
+
+.col--valign-bottom {
+  justify-content: flex-end;
+}
+
+.col-block {
+  width: 100%;
+
+  @include breakpoint(desktop-up) {
+    max-width: 80%;
+  }
+}
+
+.col-block--image,
+.col-block--list {
+  max-width: 100% !important;
+}
+
+.text-block {
+  max-width: 900px;
+  margin-top: var(--gap);
+  margin-bottom: var(--gap);
+
+  .text-center & {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,33 @@
+columnSuffix: bjhyfijz
+handle: border
+instructions: null
+name: Border
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - None
+        -
+          - value
+          - none
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Dotted
+        -
+          - value
+          - dotted
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

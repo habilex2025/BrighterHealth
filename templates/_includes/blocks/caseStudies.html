@@ -1,0 +1,28 @@
+{% set title = block.heading ?? '' %}
+{% set items = block.caseStudies.all() %}
+{% set showMoreBtn = true %}
+{% if items is empty %}
+  {% set items = craft.entries.section('caseStudies').all() %}
+  {% set showMoreBtn = false %}
+{% endif %}
+{% set isHome = (entry.slug ?? '') == '__home__' ? true : false %}
+
+{% if title|length %}
+<div class="row pb-xs">
+  <div class="container container--thin content text-center">
+    {% if isHome %}
+      <h2 class="h1">{{ title|simpleText|raw }}</h2>
+    {% else %}
+      <h2 class="font-family-text">{{ title|simpleText|raw }}</h2>
+      <a href="#work" class="btn btn--square btn--main anim-float">
+        <svg class="icon btn-arrow-point btn-arrow-point--bottom"><use href="#arrow-right"></use></svg>
+      </a>
+    {% endif %}
+
+  </div>
+</div>
+{% endif %}
+
+{% include '_includes/case-studies' with {
+  items: items
+} %}

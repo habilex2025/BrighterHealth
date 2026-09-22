@@ -1,0 +1,14 @@
+css: '@import "/css/ckeditor.css";'
+headingLevels:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: Simple
+toolbar:
+  - bold
+  - italic
+  - link
+  - sourceEditing

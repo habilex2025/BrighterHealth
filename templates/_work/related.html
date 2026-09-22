@@ -1,0 +1,27 @@
+{% set items = entry.caseStudies.limit(2).all() %}
+{% if items is empty %}
+  {% set items = craft.entries.section('caseStudies').id('not ' ~ entry.id).orderBy('RAND()').limit(2).all() %}
+{% endif %}
+
+<div class="row row--spacious theme-accent-light mt-xl">
+  <div class="container container--wide">
+
+    <div class="content">
+      <h2 class="h1">More Projects</h2>
+    </div>
+
+    <div class="cards">
+
+      {% for item in items %}
+
+        {% include '_work/card' with {
+          item: item,
+          isMinimal: true
+        } %}
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</div>

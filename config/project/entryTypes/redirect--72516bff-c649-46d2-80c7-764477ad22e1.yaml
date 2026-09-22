@@ -1,0 +1,85 @@
+color: null
+fieldLayouts:
+  ccf42c91-7450-4563-a0c7-21f5bb73a05d:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: b17b761f-e548-4c86-922a-ad8b02d93757
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 7a7e57bb-886d-496c-a1d5-93abd97ffe02 # Redirect URL
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f2bd4200-b6c6-426c-ac46-59b501522bd5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: fa15915c-8216-41d6-a60c-cd6106b612a0
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2fac89e5-9780-4ef9-a21d-026378b42494 # In Navigation?
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7299454c-afda-4dc4-a1eb-685290ffee1c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Settings
+        uid: 44cc0d36-7754-417c-b84f-c94452cc97f0
+        userCondition: null
+handle: redirect
+hasTitleField: true
+icon: null
+name: Redirect
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

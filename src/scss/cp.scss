@@ -1,0 +1,39 @@
+@import 'variables';
+@import 'easing';
+@import 'breakpoints';
+@import 'mixins';
+
+div.redactor .redactor-box .redactor-styles {
+  @import 'reset';
+  @import 'typography';
+  @import 'btn';
+  @import 'utilities';
+
+  max-width: 700px;
+  color: var(--color-text);
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-text);
+
+  small {
+    color: var(--color-text);
+    font-family: var(--font-family-text);
+    font-weight: var(--font-weight-text);
+  }
+
+  blockquote {
+    border-left: 0 !important;
+    color: var(--color-text);
+    font-style: normal;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: inherit;
+  }
+
+  @include content;
+}

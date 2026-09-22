@@ -1,0 +1,4 @@
+handle: brighterDefault
+name: 'Brighter Default'
+sortOrder: null
+template: _email/templates/formie

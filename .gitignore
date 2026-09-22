@@ -1,0 +1,53 @@
+# folder view configuration files
+.DS_Store
+Desktop.ini
+config.codekit
+
+# thumbnail cache files
+._*
+Thumbs.db
+
+# files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# craft cms
+/public_html/css/app.css
+/public_html/css/master.css
+/public_html/css/editor.css
+/public_html/css/cp.css
+/public_html/css/*.css.map
+/public_html/js/app.js
+/public_html/js/vendor.js
+/public_html/js/manifest.js
+/public_html/js/cp.js
+/public_html/js/*.js.map
+/public_html/js/app/spritemap.js
+/public_html/images/
+/public_html/imager/
+/public_html/cpresources/
+/public_html/mix.manifest.js
+/node_modules/
+.sass-cache
+Gemfile.lock
+/sftp-config.json
+/sftp-upload-config.json
+/.env
+/.idea
+/vendor
+/storage
+/scripts/.env.sh
+/.sshpath
+/sshgo.sh
+/.vscode
+
+# uploads
+/public_html/uploads
+/public_html/imager
+
+# working folders
+/_html/
+/_files/
+/_enews/
+/_backup/
+/site_zip.zip

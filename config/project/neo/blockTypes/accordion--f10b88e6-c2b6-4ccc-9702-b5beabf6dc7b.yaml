@@ -1,0 +1,46 @@
+childBlocks:
+  - listItem
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 9d1ba5c3-61da-46c6-8387-a7306e27d0fa # Blocks
+fieldLayouts:
+  ec9a4dbc-bb4a-45e1-8efd-53b422da0c78:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-11-11T03:18:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 7ba5f023-63ff-4b87-a55b-39ba0fbfa661 # Title
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0db2c56a-ced6-496e-be8b-6e02227fbb14
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: 9e52da28-26b7-439f-8fe0-9df92ebc79c2
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: accordion
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: Accordion
+topLevel: false

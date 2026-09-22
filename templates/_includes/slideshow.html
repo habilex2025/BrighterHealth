@@ -1,0 +1,56 @@
+{% set images = item.images.all() %}
+
+{% if images is not empty %}
+  <div class="image-showreel" id="image-showreel{{ item.id }}">
+    {% for image in images %}
+      {% include '_includes/picture' with {
+        image: image,
+        class: 'image-showreel__image',
+      } %}
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% if images is not empty %}
+  {% set slideDuration = 1 %}
+  {% set transDuration = 1 %}
+  {% set totalDuration = (slideDuration + transDuration) * images|length %}
+
+  <style>
+    @keyframes slide-show{{ item.id }} {
+      0% {
+        opacity: 1;
+      }
+      {{ slideDuration / totalDuration * 100 }}% {
+        opacity: 1;
+        transform: none;
+      }
+      {{ (slideDuration + transDuration) / totalDuration * 100 }}% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      {{ 100 - transDuration / totalDuration * 100 }}% {
+        opacity: 0;
+        transform: translateX(5%);
+      }
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    #image-showreel{{ item.id }} > * {
+      animation-name: slide-show{{ item.id }};
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-fill-mode: backwards;
+      animation-duration: {{ totalDuration }}s;
+    }
+
+    {% for image in images %}
+      #image-showreel{{ item.id }} > :nth-of-type({{ loop.index }}) {
+        animation-delay: {{ -(slideDuration + transDuration) * loop.index }}s;
+      }
+    {% endfor %}
+  </style>
+{% endif %}

@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: ff637886-ad44-47c0-9096-f747e07506c7 # Page
+  -
+    uid: 72516bff-c649-46d2-80c7-764477ad22e1 # Redirect
+  -
+    uid: fb0ca944-c6ac-4767-97e0-96edc3e8ddb0 # Custom Page
+handle: pages
+maxAuthors: 1
+name: Pages
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  e6a1070e-d15a-4c38-9f3e-c8951537b8a2: # $SYSTEM_NAME
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/entry
+    uriFormat: '{% if object.level == 1 %}{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: null
+  uid: 1bb1f950-bf67-44c9-9af0-b00350c8e2aa
+type: structure

@@ -1,0 +1,8 @@
+enabled: '1'
+handle: campaignMonitor
+name: 'Campaign Monitor'
+settings:
+  apiKey: $CAMPAIGN_MONITOR_API_KEY
+  clientId: $CAMPAIGN_MONITOR_CLIENT_ID
+sortOrder: 1
+type: verbb\formie\integrations\emailmarketing\CampaignMonitor

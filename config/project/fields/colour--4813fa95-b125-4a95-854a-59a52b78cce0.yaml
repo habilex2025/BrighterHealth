@@ -1,0 +1,22 @@
+columnSuffix: vxpyzdmy
+handle: colour
+instructions: null
+name: Colour
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - White
+        -
+          - value
+          - white
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -1,0 +1,17 @@
+<div class="row row--work theme-white">
+  <div class="container container--thin text-center">
+
+    <div class="content">
+      <div class="quote">
+        <div class="quote__copy">
+        {{ block.text }}
+        </div>
+        <p>
+          <strong>{{ block.heading|striptags|simpleText|raw }}</strong><br />
+          {{ block.subHeading|simpleText|raw }}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>

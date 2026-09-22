@@ -1,0 +1,231 @@
+.site-menu {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-index-menu);
+}
+
+.site-menu__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.5s;
+  will-change: opacity;
+}
+
+.site-menu__inner {
+  position: absolute;
+  inset: 0;
+
+  // right: 0;
+  // top: 0;
+  // height: 100%;
+  // width: 100%;
+  // max-width: 450px;
+  background: var(--color-accent-dark);
+  padding: 40px;
+  overflow: auto;
+  transition: transform 0.5s;
+  display: flex;
+  align-items: center;
+  place-content: center center;
+}
+
+.site-menu[aria-hidden='true'] {
+  // transition: visibility 0s 0.5s;
+  visibility: hidden;
+
+  .site-menu__overlay {
+    opacity: 0;
+  }
+
+  .site-menu__inner {
+    opacity: 0;
+
+    // transform: translateX(100%);
+  }
+}
+
+.site-menu__close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 1.5em;
+  color: var(--color-white);
+  padding: 20px;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-black);
+  }
+}
+
+.site-menu__items {
+  // margin-top: 40px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.site-menu[aria-hidden='false'] .site-menu__items {
+  li:nth-child(1n) {
+    animation: come-in 0.4s 0.1s backwards;
+  }
+
+  li:nth-child(2n) {
+    animation: come-in 0.4s 0.15s backwards;
+  }
+
+  li:nth-child(3n) {
+    animation: come-in 0.4s 0.2s backwards;
+  }
+
+  li:nth-child(4n) {
+    animation: come-in 0.4s 0.25s backwards;
+  }
+
+  li:nth-child(5n) {
+    animation: come-in 0.4s 0.3s backwards;
+  }
+
+  li:nth-child(6n) {
+    animation: come-in 0.4s 0.35s backwards;
+  }
+}
+
+@keyframes come-in {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}
+
+.site-menu__children {
+  font-weight: normal;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  .site-menu__item {
+    margin-left: 20px;
+  }
+}
+
+.site-menu__item {
+  display: block;
+  text-decoration: none;
+  padding: 10px 0;
+  margin: -10px 0;
+  color: var(--color-accent-lighter);
+  font-size: 300%;
+  font-family: var(--font-family-display);
+  font-weight: 300;
+  letter-spacing: 2px;
+  transition: all 0.2s var(--ease-out);
+  position: relative;
+
+  @include breakpoint(tablet-down) {
+    font-size: 150%;
+  }
+
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-accent),
+    var(--color-accent) 50%,
+    var(--color-accent-lighter) 50%
+  );
+  background-size: 100% 200%;
+  background-position-y: -100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+a.site-menu__item:hover {
+  color: var(--color-accent);
+  background-position-y: 0;
+}
+
+.site-menu__audit {
+  display: block;
+  margin-top: 40px;
+  background: var(--color-white);
+  padding: 20px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: normal;
+
+  strong {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+.site-menu__audit-arrow {
+  float: right;
+  font-size: 1.1em;
+  margin-right: -5px;
+  transition: transform 0.2s;
+}
+
+.site-menu__audit:hover .site-menu__audit-arrow {
+  transform: translateX(5px);
+}
+
+.site-menu__skip-to-content {
+  position: absolute;
+  left: -1000px;
+  transform: translateX(-50%);
+  padding: 10px 15px;
+  background: var(--color-main);
+  color: var(--color-white);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 75%;
+  z-index: 99999;
+
+  &:focus {
+    left: 50%;
+  }
+}
+
+.site-menu__footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: var(--color-white);
+  font-weight: 300;
+
+  a {
+    color: var(--color-white);
+  }
+}
+
+.site-menu__footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+
+  > * {
+    flex-basis: 100%;
+    text-align: center;
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+}
+
+.site-menu__footer-address {
+  @include breakpoint(tablet-down) {
+    display: none;
+  }
+}

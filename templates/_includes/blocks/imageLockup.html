@@ -1,0 +1,56 @@
+{% set title = block.heading ?? '' %}
+{% set subtitle = block.subHeading ?? '' %}
+{% set hasLabel = title|length or subtitle|length %}
+{% set videos = videos ?? block.video.all() ?? null %}
+{% set hasVideo = videos is iterable and videos|length %}
+
+<div class="row{{ block.theme|length ? ' theme-' ~ block.theme }} about-founder-row">
+  <div class="container container--wide">
+
+    <div class="about-founder">
+
+      {% set image = block.images.one() ?? null %}
+      {% if image and image.kind == "image" %}
+      <div class="about-founder__img1 anim-slide-in" data-from="left">
+        {% if image and image.kind == "image" %}
+          {% include '_includes/picture' with {
+            image: image
+          } %}
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if title|length or subtitle|length %}
+        <div class="about-founder__label anim-slide-in" data-from="bottom">
+          <div class="about-founder__label-box">
+            {% if title|length %}
+              <h3>{{ title|simpleText|raw }}</h3>
+            {% endif %}
+            {% if subtitle|length %}
+              <p>{{ subtitle|simpleText|raw }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% set image = block.images.offset(1).one() ?? null %}
+      {% if image and image.kind == "image" %}
+      <div class="about-founder__img2 anim-slide-in" data-from="right">
+        {% if hasVideo %}
+          <video class="" loading="eager" autoplay muted loop playsinline>
+            {% for video in videos %}
+            <source src="{{ video.url }}" type="{{ video.mimeType }}">
+            {% endfor %}
+          </video>
+        {% elseif image and image.kind == "image" %}
+          {% include '_includes/picture' with {
+            image: image
+          } %}
+        {% endif %}
+      </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>

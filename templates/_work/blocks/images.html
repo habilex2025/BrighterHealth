@@ -1,0 +1,18 @@
+{% set width = block.width == 'wide' ? 'full' : (block.width == 'thin' ? 'wide' : 'hd') %}
+{% if block.images is not empty %}
+<div class="row row--work theme-white">
+  <div class="container container--{{ width }}">
+
+    <div class="image-row anim-quick-slide-in{{ block.images|length > 1 ? ' image-row--multiple' }}">
+      {% for image in block.images.all() %}
+        {% if image and image.kind == "image" %}
+          {% include '_includes/picture' with {
+            image: image
+          } %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+{% endif %}

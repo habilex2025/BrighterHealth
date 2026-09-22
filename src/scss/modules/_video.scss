@@ -1,0 +1,97 @@
+.video video {
+  width: 100%;
+}
+
+.video__container {
+  background: var(--color-black);
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; // 16:9
+
+  video,
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.video__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.video.is-playing .video__poster {
+  display: none;
+}
+
+.video__play-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+
+  // Play icon
+  &::before {
+    content: '';
+    margin-right: -5px;
+    border-left: 42px solid var(--color-main);
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    transition: border-left-color 0.2s;
+  }
+
+  // Make the whole video area clickable
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  &:hover {
+    background: var(--color-main);
+
+    &::before {
+      border-left-color: var(--color-white);
+    }
+  }
+}
+
+.video__-small .video__playButton {
+  width: 50px;
+  height: 50px;
+
+  &::before {
+    border-left-width: 21px;
+    border-top-width: 12px;
+    border-bottom-width: 12px;
+  }
+}
+
+@include breakpoint(mobile) {
+  .video__title {
+    font-size: 200%;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+}
+
+@include breakpoint(tablet-up) {
+  .video__title {
+    font-size: 400%;
+    font-weight: 900;
+    margin-bottom: 50px;
+  }
+}

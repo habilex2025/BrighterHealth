@@ -1,0 +1,8 @@
+{% set prevType = '' %}
+{% for subBlock in block.children.all() %}
+
+  {% include '_includes/content/' ~ subBlock.type ignore missing with { block : subBlock } %}
+
+  {% set prevType = subBlock.type %}
+
+{% endfor %}

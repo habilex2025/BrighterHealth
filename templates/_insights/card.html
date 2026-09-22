@@ -1,0 +1,41 @@
+{% set image = item.image.one() %}
+
+{% if item.text|length %}
+  {% set summary = item.text|striptags %}
+  {% set summary = summary|wordLimit(50, '...') %}
+{% else %}
+  {% set summary = '' %}
+  {% set sep = '' %}
+  {% for block in item.blocks.all() %}
+    {% if block.type == 'text' %}
+      {% set summary = summary ~ sep ~ block.text|striptags %}
+      {% set sep = ' ' %}
+    {% endif %}
+  {% endfor %}
+  {% set summary = summary|wordLimit(50, '...') %}
+{% endif %}
+
+<div class="card card--article block-link">
+  {% if image and image.kind == 'image' %}
+    <div class="card__aside">
+      {% include '_includes/picture' with {
+        image: image,
+        class: 'card__image',
+        widths: [2000, 1600, 1200, 800, 400, 200, 50]
+      } %}
+    </div>
+  {% endif %}
+  <div class="card__main">
+    <div class="card__header">
+      <h3 class="card__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+    </div>
+    {% if summary|length %}
+      <p class="card__text">
+        {{ summary }}
+      </p>
+    {% endif %}
+    <div class="btn btn--square btn--accent mt-xs card__btn">
+      <svg class="icon btn-arrow-point btn-arrow-point--top-right"><use href="#arrow-right"></use></svg>
+    </div>
+  </div>
+</div>

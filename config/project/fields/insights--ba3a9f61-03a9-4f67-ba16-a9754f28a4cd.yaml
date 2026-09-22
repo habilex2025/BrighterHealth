@@ -1,0 +1,25 @@
+columnSuffix: null
+handle: insights
+instructions: 'Select insights to display or leave empty to display the latest articles by default'
+name: Insights
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Select insights'
+  showCardsInGrid: false
+  showSiteMenu: true
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:2415dd2e-a194-43ce-ae87-d7c7cfeb23ca' # Insights
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

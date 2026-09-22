@@ -1,0 +1,28 @@
+{% set image = block.image.one() ?? null %}
+{% set link = block.craftLink ?? null %}
+
+<div class="text-and-image">
+
+  <div class="text-and-image__main anim-slide-in" data-from="left">
+    {% if block.heading|length %}
+      <p class="h1 color-main-dark">{{ block.heading|simpleText|raw }}</p>
+    {% endif %}
+    {{ block.text|deOrphan|raw }}
+    {% if link %}
+      {% include '_includes/button' with {
+        link: link,
+        theme: 'main',
+        hasArrow: true
+      } %}
+    {% endif %}
+  </div>
+
+  {% if image and image.kind == "image" %}
+  <div class="text-and-image__aside anim-slide-in" data-from="right">
+    {% include '_includes/picture' with {
+      image: image
+    } %}
+  </div>
+{% endif %}
+
+</div>

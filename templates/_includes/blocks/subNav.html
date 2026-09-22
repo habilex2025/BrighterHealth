@@ -1,0 +1,7 @@
+<div class="sub-nav">
+  {% for item in entry.blocks.type(['pageSection', 'standard']).all() %}
+    {% if item.simpleText|length %}
+      <a href="#{{ item.simpleText|kebab }}" data-id="{{ item.simpleText|kebab }}" class="sub-nav__link">{{ item.simpleText }}</a>
+    {% endif %}
+  {% endfor %}
+</div>

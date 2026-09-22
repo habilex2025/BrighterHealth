@@ -1,0 +1,160 @@
+{% set pdfDownload = craft.assets.id(9068).one() ?? null %}
+
+{# Comparison block #}
+<div class="row theme-white">
+  <div class="container">
+
+    {% if pdfDownload %}
+    <div class="hide-tablet-up">
+      <a href="{{ pdfDownload.url }}" class="btn btn--standard btn--main">See all packages</a>
+    </div>
+    {% endif %}
+
+    <div style="width: 100%; position: relative;" class="hide-mobile">
+
+      <div class="comparison-cards">
+
+        <div class="comparison-card comparison-card--tier-1">
+
+          <div class="comparison-card__part">
+            <span class="comparison-card__eyebrow">Tier 1</span>
+            <p class="comparison-card__price">$6,000</p>
+          </div>
+
+          <div class="comparison-card__part">
+            <p>4 - 6 weeks</p>
+          </div>
+
+          <div class="comparison-card__part comparison-card__part--content">
+            <div class="comparison-card__part-highlight">
+              <ul>
+                <li>Digital ads</li>
+                <li>Audio ads</li>
+              </ul>
+            </div>
+            <div class="comparison-card__part-inner">
+              <ul>
+                <li>Campaign creative, all advertising assets, planning and management</li>
+                <li>Measurement and reporting</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="comparison-card comparison-card--tier-2">
+
+          <div class="comparison-card__part">
+            <span class="comparison-card__eyebrow">Tier 2</span>
+            <p class="comparison-card__price">$15,000</p>
+          </div>
+
+          <div class="comparison-card__part">
+            <p>2 months</p>
+          </div>
+
+          <div class="comparison-card__part comparison-card__part--content">
+            <div class="comparison-card__part-highlight">
+              <ul>
+                <li>Digital ads</li>
+                <li>Audio ads</li>
+                <li>Regional Press Ads</li>
+                <li>GP channels</li>
+              </ul>
+            </div>
+            <div class="comparison-card__part-inner">
+              <ul>
+                <li>Campaign creative, all advertising assets, planning and management</li>
+                <li>Measurement and reporting</li>
+                <li>New Photography and Videography</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="comparison-card comparison-card--tier-3">
+
+          <div class="comparison-card__part">
+            <span class="comparison-card__eyebrow">Tier 3</span>
+            <p class="comparison-card__price">$25,000</p>
+          </div>
+
+          <div class="comparison-card__part">
+            <p>3 months</p>
+          </div>
+
+          <div class="comparison-card__part comparison-card__part--content">
+            <div class="comparison-card__part-highlight">
+              <ul>
+                <li>Digital ads</li>
+                <li>Regional Radio</li>
+                <li>Regional Press Ads</li>
+                <li>GP channels</li>
+                <li>Regional outdoor</li>
+                <li>On-demand TV</li>
+              </ul>
+            </div>
+            <div class="comparison-card__part-inner">
+              <ul>
+                <li>Campaign creative, all advertising assets, planning and management</li>
+                <li>Measurement and reporting</li>
+                <li>New Photography and Videography</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="comparison-card comparison-card--tier-4">
+
+          <div class="comparison-card__part">
+            <span class="comparison-card__eyebrow">Tier 4</span>
+            <p class="comparison-card__price">$50,000</p>
+          </div>
+
+          <div class="comparison-card__part">
+            <p>4 months</p>
+          </div>
+
+          <div class="comparison-card__part comparison-card__part--content">
+            <div class="comparison-card__part-highlight comparison-card__part-highlight--2">
+              <ul>
+                <li><strong>Extended support</strong><br />
+                Tailored campaign planning and support from <strong>Ben Murray</strong>.</li>
+              </ul>
+            </div>
+            <div class="comparison-card__part-highlight">
+              <ul>
+                <li>Digital ads</li>
+                <li>Regional Radio</li>
+                <li>Regional Press Ads</li>
+                <li>GP channels</li>
+                <li>Regional outdoor</li>
+                <li>On-demand TV</li>
+                <li>Live interviews (if desired)</li>
+                <li>Access to distress rates, extended media placement</li>
+                <li>Bespoke media opportunities</li>
+              </ul>
+            </div>
+            <div class="comparison-card__part-inner">
+              <ul>
+                <li>Campaign creative, all advertising assets, planning and management</li>
+                <li>Measurement and reporting</li>
+                <li>New Photography and Videography</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="comparison-footer content">
+        <p class="text-xs mt-lg">These plans are just a guide. The final shape will depend on how many people join in and the budget we’ve got to work with. The more who take part, the more opportunities everyone shares.</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

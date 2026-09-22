@@ -1,0 +1,23 @@
+image: php:8.2
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Deploy to Production
+          caches:
+            - composer
+          script:
+            - apt-get update && apt-get install -y openssh-client git unzip
+            - curl -sS https://getcomposer.org/installer | php
+            - COMPOSER=composer.deploy.json php composer.phar install
+            - php vendor/bin/dep deploy prod
+          services:
+            - ssh-agent
+
+definitions:
+  services:
+    ssh-agent:
+      image: whilp/ssh-agent:latest
+      variables:
+        SSH_PRIVATE_KEY: $SSH_PRIVATE_KEY

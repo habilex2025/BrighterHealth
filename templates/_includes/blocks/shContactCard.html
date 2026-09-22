@@ -1,0 +1,15 @@
+{% set imageSarah = craft.assets.id(9079).one() ?? null %}
+<div class="contact-card">
+  <div class="contact-card__main">
+    <p class="contact-card__name">Sarah Hyde</p>
+    {% if imageSarah and imageSarah.kind == "image" %}
+      <div class="contact-card__photo">
+        <img src="{{ imageSarah.url }}" alt="Sarah Hyde">
+      </div>
+    {% endif %}
+  </div>
+  <div class="contact-card__footer">
+    <a href="tel:0408480054" class="contact-card__phone">0408 480 054</a><br />
+    <a href="mailto:sarah@shmarketing.com.au" class="contact-card__email">sarah@shmarketing.com.au</a>
+  </div>
+</div>

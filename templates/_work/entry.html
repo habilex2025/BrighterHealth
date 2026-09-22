@@ -1,0 +1,32 @@
+{% extends '_layout' %}
+{% set bodyClass = 'work-' ~ entry.slug %}
+{% if entry.metaTitle|length %}{% set metaTitle = entry.metaTitle %}{% set ogTitle = entry.metaTitle %}{% endif %}
+{% if entry.metaDescription|length %}{% set metaDesc = entry.metaDescription %}{% endif %}
+{% if entry.pageBanner|length %}{% set ogImage = entry.pageBanner.one().url %}{% endif %}
+
+{% block content %}
+
+{% cache %}
+
+{% include '_includes/blocks/featureAsset' with {
+  title: entry.title,
+  image: entry.image.one(),
+  images: entry.images.all(),
+  videos: entry.video.all(),
+  classes: 'mt-lg2'
+} %}
+
+<div class="row row--work row--work-text theme-white pt-0">
+  <div class="container container--thin content text-center">
+    {% if entry.heading|length %}<h3 class="font-family-text">{{ entry.heading|simpleText|raw }}</h3>{% endif %}
+    {{ entry.text }}
+  </div>
+</div>
+
+{% include '_work/blocks' with { blocks: entry.caseStudyBlocks.level(1).all() } %}
+
+{% include '_work/related' %}
+
+{% endcache %}
+
+{% endblock %}

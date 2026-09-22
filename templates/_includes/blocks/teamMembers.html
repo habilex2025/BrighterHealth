@@ -1,0 +1,161 @@
+<div class="row theme-accent-dark team-members">
+  <div class="container">
+    <h2 class="h1 team-members__heading">
+      The people <br />powering Brighter
+    </h2>
+
+    <div class="team-members__items">
+
+      <div class="team-member anim-slide-in" data-from="bottom" data-delay="50">
+        <div class="team-member__image">
+          <img src="/images/team/2023/ben.jpg" alt="Ben Murray">
+          <button class="team-member__button js-bio-btn" data-person="ben" @click.prevent="bioBenOpen = true;">
+            <span class="btn btn--rounded">
+              About Ben
+            </span>
+          </button>
+        </div>
+        <div class="team-member__name">
+          <span>Ben Murray</span> <a href="https://au.linkedin.com/in/benmurraydesigner" target="_blank" aria-label="Ben Murray on LinkedIn"><svg class="icon" aria-hidden="true"><use href="#linkedin"/></svg></a><br>
+          <span class="team-member__role">Managing Director</span>
+        </div>
+      </div>
+
+      <div class="team-member anim-slide-in" data-from="bottom" data-delay="0">
+        <div class="team-member__image">
+          <img src="/images/team/2023/brenton.jpg" alt="Brenton Murray">
+          <button class="team-member__button js-bio-btn" data-person="brenton" @click.prevent="bioBrentonOpen = true;">
+            <span class="btn btn--rounded">
+              About Brenton
+            </span>
+          </button>
+        </div>
+        <div class="team-member__name">
+          <span>Brenton Murray</span> <a href="https://www.linkedin.com/in/brenton-murray-08542413/" target="_blank" aria-label="Brenton Murray on LinkedIn"><svg class="icon" aria-hidden="true"><use href="#linkedin"/></svg></a><br>
+          <span class="team-member__role">Creative Director</span>
+        </div>
+      </div>
+
+      <div class="team-member anim-slide-in" data-from="bottom" data-delay="100">
+        <div class="team-member__image">
+          <img src="/images/team/2023/sophie.jpg" alt="Sophie Cook">
+          <button class="team-member__button js-bio-btn" data-person="sophie" @click.prevent="bioSophieOpen = true;">
+            <span class="btn btn--rounded">
+              About Sophie
+            </span>
+          </button>
+        </div>
+        <div class="team-member__name">
+          <span>Sophie Cook</span><br>
+          <span class="team-member__role">Project Director</span>
+        </div>
+      </div>
+
+      <div class="team-member anim-slide-in" data-from="bottom" data-delay="0">
+        <div class="team-member__image">
+          <img src="/images/team/2023/joel.jpg" alt="Joel Zerner">
+          <button class="team-member__button js-bio-btn" data-person="joel" @click.prevent="bioJoelOpen = true;">
+            <span class="btn btn--rounded">
+              About Joel
+            </span>
+          </button>
+        </div>
+        <div class="team-member__name">
+          <span>Joel Zerner</span><br>
+          <span class="team-member__role">Digital Director</span>
+        </div>
+      </div>
+
+      <div class="team-member anim-slide-in" data-from="bottom" data-delay="50">
+        <div class="team-member__image">
+          <img src="/images/team/2023/mallory.jpg" alt="Mallory Larcombe">
+          <button class="team-member__button js-bio-btn" data-person="mallory" @click.prevent="bioMalloryOpen = true;">
+            <span class="btn btn--rounded">
+              About Mallory
+            </span>
+          </button>
+        </div>
+        <div class="team-member__name">
+          <span>Mallory Larcombe</span><br>
+          <span class="team-member__role">Designer</span>
+        </div>
+      </div>
+
+      <div class="team-member anim-slide-in" data-from="bottom" data-delay="0">
+        <div class="team-member__image">
+          <img src="/images/team/2023/edward.jpg" alt="Edward Loxton">
+          <button class="team-member__button js-bio-btn" data-person="edward" @click.prevent="bioEdwardOpen = true;">
+            <span class="btn btn--rounded">
+              About Edward
+            </span>
+          </button>
+        </div>
+        <div class="team-member__name">
+          <span>Edward Loxton</span><br>
+          <span class="team-member__role">Designer</span>
+        </div>
+      </div>
+
+      {# <div class="team-member anim-slide-in" data-from="bottom" data-delay="50">
+        <div class="team-member__image">
+          <img src="/images/team/2023/jeremy.jpg" alt="Jeremy Driver">
+          <button class="team-member__button js-bio-btn" data-person="jeremy" @click.prevent="bioJeremyOpen = true;">
+            <span class="btn btn--rounded">
+              About Jeremy
+            </span>
+          </button>
+        </div>
+        <div class="team-member__name">
+          <span>Jeremy Driver</span><br>
+          <span class="team-member__role">Web Developer</span>
+        </div>
+      </div> #}
+
+      {# <div class="team-member anim-slide-in" data-from="bottom" data-delay="100">
+        <div class="team-member__image">
+          <img src="/images/team/2023/grace.jpg" alt="Grace Mackay">
+          <button class="team-member__button js-bio-btn" data-person="grace" @click.prevent="bioGraceOpen = true;">
+            <span class="btn btn--rounded">
+              About Grace
+            </span>
+          </button>
+        </div>
+        <div class="team-member__name">
+          <span>Grace Mackay</span><br>
+          <span class="team-member__role">Designer</span>
+        </div>
+      </div> #}
+
+      {# <div class="team-member anim-slide-in" data-from="bottom" data-delay="100">
+        <div class="team-member__image">
+          <img src="/images/team/2023/adam.jpg" alt="Adam Gore">
+          <button class="team-member__button js-bio-btn" data-person="grace" @click.prevent="bioAdamOpen = true;">
+            <span class="btn btn--rounded">
+              About Adam
+            </span>
+          </button>
+        </div>
+        <div class="team-member__name">
+          <span>Adam Gore</span><br>
+          <span class="team-member__role">Web Developer</span>
+        </div>
+      </div> #}
+
+      <div class="team-member anim-slide-in" data-from="bottom" data-delay="100">
+        <div class="team-member__image">
+          <img src="/images/team/2023/rebecca.jpg" alt="Rebecca Murray">
+          <button class="team-member__button js-bio-btn" data-person="rebecca" @click.prevent="bioRebeccaOpen = true;">
+            <span class="btn btn--rounded">
+              About Rebecca
+            </span>
+          </button>
+        </div>
+        <div class="team-member__name">
+          <span>Rebecca Murray</span><br>
+          <span class="team-member__role">Administration Manager</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

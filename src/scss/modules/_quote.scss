@@ -1,0 +1,38 @@
+.quote {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-top: 1em;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.quote__copy {
+  font-size: 140%;
+  line-height: 1.3;
+  font-weight: 700;
+
+  &::before,
+  &::after {
+    color: inherit;
+    display: block;
+    font-size: 250%;
+    line-height: 0;
+  }
+
+  &::before {
+    content: '“';
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  &::after {
+    content: '”';
+    margin-top: 0.6em;
+  }
+}

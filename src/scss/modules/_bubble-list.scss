@@ -1,0 +1,35 @@
+:root {
+  --bubble-gap: 10px;
+  --bubble-height: 56px;
+
+  @include breakpoint(tablet-up) {
+    --bubble-gap: 15px;
+    --bubble-height: 76px;
+  }
+}
+
+.bubble-list {
+  display: flex;
+  align-items: stretch;
+  place-content: center center;
+  flex-wrap: wrap;
+  gap: 12px var(--bubble-gap);
+  list-style: none;
+}
+
+.bubble-list__item {
+  display: flex;
+  align-items: center;
+  place-content: center center;
+  height: var(--bubble-height);
+  padding: 6px 22px;
+  border-radius: calc(var(--bubble-height) / 2);
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent-dark);
+  font-size: 120%;
+
+  @include breakpoint(tablet-up) {
+    padding: 10px 56px;
+    font-size: 140%;
+  }
+}

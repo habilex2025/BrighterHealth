@@ -1,0 +1,29 @@
+{% set theme = theme ?? block.theme ?? 'default' %}
+{% set style = style ?? block.buttonStyle ?? 'standard' %}
+{% set size = size ?? block.buttonSize ?? 'standard' %}
+{% set link = link ?? block.craftLink ?? null %}
+{% set target = target ?? link.target ?? '_self' %}
+{% set text = text ?? link.label ?? defaultText ?? 'Learn more' %}
+{% set url = url ?? link.url ?? '/' %}
+{% set class = class ?? '' %}
+{% set icon = '' %}
+{# {% set icon = block.icon ?? '' %} #}
+{% set hiddenText = '' %}
+{% if url == text %}{% set text = 'Learn more' %}{% endif %}
+{% if text == 'Learn more' and (link.getElement().title ?? null) %}
+  {% set hiddenText = ' about ' ~ link.getElement().title %}
+{% endif %}
+{% set hasArrow = hasArrow ?? false %}
+
+<a
+  href="{{ url }}"
+  target="{{ target }}"
+  class="btn btn--{{ style }} btn--{{ theme }} btn--{{ size }}{{ class ? ' ' ~ class : '' }}">
+  <span>{{ text|raw }}{% if hiddenText|length %}<span class="visually-hidden">{{ hiddenText }}</span>{% endif %}</span>
+  {% if icon|length %}
+    <svg class="icon btn__icon"><use href="#{{ icon|length ? icon : 'arrow-circle-down' }}"></use></svg>
+  {% endif %}
+  {% if hasArrow %}
+    <svg class="icon btn-arrow"><use href="#arrow-right"></use></svg>
+  {% endif %}
+</a>

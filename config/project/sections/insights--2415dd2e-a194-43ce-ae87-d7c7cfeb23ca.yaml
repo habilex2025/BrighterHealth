@@ -1,0 +1,25 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: c5cc3344-a15a-4e0f-a481-700bd66929d2 # Insight
+handle: insights
+maxAuthors: 1
+name: Insights
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+propagationMethod: all
+siteSettings:
+  e6a1070e-d15a-4c38-9f3e-c8951537b8a2: # $SYSTEM_NAME
+    enabledByDefault: true
+    hasUrls: true
+    template: _insights/entry
+    uriFormat: 'insights/{slug}'
+type: channel

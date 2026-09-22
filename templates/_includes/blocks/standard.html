@@ -1,0 +1,15 @@
+<div class="row{{ block.theme|length ? ' theme-' ~ block.theme }}{{ block.align|length ? ' text-' ~ block.align }}{{ block.simpleText|length ? ' marker' : '' }}"{% if block.theme == 'light-accent' %} data-bg-color="light-accent"{% endif %} {% if block.simpleText|length %} id="{{ block.simpleText|kebab }}"{% endif %}>
+  <div class="container container--{{ block.width }}">
+
+    <div class="page">
+
+      <div class="page__main content{% if block.border == 'dotted' %} border-dotted p-sm{% endif %}"{{ (block.width ?? null) == 'wide' ? ' style="max-width: none;"' }}>
+        {% include '_includes/content-blocks' %}
+      </div>
+
+    {% if (block.nextSibling and block.nextSibling.type != 'sidebar') or not block.nextSibling %}
+    </div>
+
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,69 @@
+childBlocks: null
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 3fdc0d42-733c-4913-ac41-b05e21f4e2e2 # Case Study Blocks
+fieldLayouts:
+  b026baf0-af1c-4486-9714-ee6a12348288:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'A minimum of four images is required to make this scrolling images block work.'
+            type: craft\fieldlayoutelements\Tip
+            uid: a7c0d369-f4c0-4257-b1c5-d539aaa0a90e
+            userCondition: null
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b61681cb-b083-4d60-b799-5df5831c39b1 # Direction
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b89b7923-8e27-4069-b0c3-1930b37e40fb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9cbe2df3-c731-411f-bd48-e6783b7110da # Images
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c3238937-310e-4b5c-9804-1c7e8196b251
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: 31d67438-9983-4c1b-a654-93f85545b19f
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: scrollingImages
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: 'Scrolling Images'
+topLevel: true

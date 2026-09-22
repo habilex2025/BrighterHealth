@@ -1,0 +1,45 @@
+.header {
+  background: var(--color-darker-grey);
+  color: var(--color-white);
+  text-align: center;
+}
+
+.header__title {
+  span {
+    font-weight: 300;
+  }
+}
+
+.footer {
+  background: var(--color-darker-grey);
+  text-align: center;
+
+  &,
+  a {
+    color: var(--color-white);
+  }
+}
+
+.outline {
+  border: 2px solid var(--color-accent);
+}
+
+.highlight-padding {
+  background: rgba(var(--color-accent), 0.5);
+
+  > * {
+    background: var(--color-white);
+  }
+}
+
+@include breakpoint(tablet-up) {
+  .flex {
+    display: flex;
+    margin: 0 -50px;
+
+    > * {
+      flex-basis: 100%;
+      margin: 0 50px;
+    }
+  }
+}

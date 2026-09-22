@@ -1,0 +1,13 @@
+.site-footer-acknowledgement {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  color: var(--color-white);
+  font-size: 80%;
+  font-weight: 500;
+  background: var(--color-accent-light);
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5) inset;
+
+  body.entry-contact & {
+    background: var(--color-light-grey);
+  }
+}

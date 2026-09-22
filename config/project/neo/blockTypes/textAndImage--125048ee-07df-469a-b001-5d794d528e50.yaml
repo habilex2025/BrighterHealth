@@ -1,0 +1,90 @@
+childBlocks: null
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 9d1ba5c3-61da-46c6-8387-a7306e27d0fa # Blocks
+fieldLayouts:
+  672c3134-5cf1-4dbb-a966-34d8081b1f68:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76f7060b-7e68-4d92-9407-bbb3ce96ca6a # Image
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 74dda857-6973-4bed-9e65-195d8bcf57f8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 7ba5f023-63ff-4b87-a55b-39ba0fbfa661 # Title
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ae916ae9-d51c-4e4c-9e1c-e72a0d432c35
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: a4e10478-a847-4bc8-9c32-25f93544822c # Text
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d1bf78ae-617c-499f-a4ed-7c1c7860c71f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-11-10T21:22:23+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0dcd96b-41c5-4c54-aa44-cc423ed4e6e1 # Link
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d41122c6-4e10-4a7b-ac90-f87288b85aae
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: 0ff52377-0803-432b-aeb1-d8eb9f1955f9
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: textAndImage
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: 'Text and Image'
+topLevel: false

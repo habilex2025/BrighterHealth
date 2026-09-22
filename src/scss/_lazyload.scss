@@ -1,0 +1,12 @@
+@mixin better-blur($radius) {
+  filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a' x='0' y='0' width='1' height='1'%3E%3CfeGaussianBlur stdDeviation='#{var(--radius)}' result='b'/%3E%3CfeMorphology operator='dilate' radius='#{var(--radius)}'/%3E %3CfeMerge%3E%3CfeMergeNode/%3E%3CfeMergeNode in='b'/%3E%3C/feMerge%3E%3C/filter%3E%3C/svg%3E#a");
+}
+
+.blur-up {
+  transition: filter 1s $easeOutQuad;
+
+  // TODO: SVG filters can't be transitioned. Use native blur instead?
+  &:not(.lazyloaded) {
+    @include better-blur(20);
+  }
+}

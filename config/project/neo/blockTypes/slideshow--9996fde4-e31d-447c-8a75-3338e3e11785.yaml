@@ -1,0 +1,45 @@
+childBlocks: null
+color: null
+conditions: null
+description: ''
+enabled: true
+entryType: null
+field: 3fdc0d42-733c-4913-ac41-b05e21f4e2e2 # Case Study Blocks
+fieldLayouts:
+  888bb0c6-2fac-43b4-a7c6-a17fcb96f58a:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-02-19T22:52:33+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9cbe2df3-c731-411f-bd48-e6783b7110da # Images
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 526bf36b-c348-4e46-8dc5-7d2325430122
+            userCondition: null
+            warning: null
+            width: 100
+        name: Main
+        uid: cf80d225-4337-42a2-a45b-445ee9d6f341
+        userCondition: null
+group: null
+groupChildBlockTypes: true
+handle: slideshow
+icon: null
+iconFilename: ''
+ignorePermissions: true
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+minBlocks: 0
+minChildBlocks: 0
+minSiblingBlocks: 0
+name: Slideshow
+topLevel: false

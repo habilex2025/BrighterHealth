@@ -1,0 +1,20 @@
+{% set image = block.image.one() ?? null %}
+{% if image and image.kind == "image" %}
+<div class="content-image">
+  {% if image and image.kind == "image" %}
+    {% if image.extension == 'svg' %}
+      <img src="{{ image.url }}" alt="">
+    {% else %}
+      {% include '_includes/picture' with {
+        image: image
+      } %}
+    {% endif %}
+  {% endif %}
+  {% if block.heading|length %}
+    <div class="content-image__caption">
+      <svg class="icon content-image__caption-icon"><use href="#arrow-circle-up"></use></svg>
+      {{ block.heading|typogrify }}
+    </div>
+  {% endif %}
+</div>
+{% endif %}

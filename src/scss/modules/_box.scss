@@ -1,0 +1,12 @@
+.box {
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: 2.5em;
+  justify-content: center;
+}
+
+.box__title {
+  @extend .h3;
+
+  color: var(--color-accent);
+}

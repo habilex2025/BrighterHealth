@@ -1,0 +1,17 @@
+{% extends '_layout' %}
+{% set bodyClass = 'page-' ~ entry.slug %}
+{% if entry.metaTitle|length %}{% set metaTitle = entry.metaTitle %}{% set ogTitle = entry.metaTitle %}{% endif %}
+{% if entry.metaDescription|length %}{% set metaDesc = entry.metaDescription %}{% endif %}
+{% if entry.pageBanner|length %}{% set ogImage = entry.pageBanner.one().url %}{% endif %}
+
+{% block content %}
+
+  {% include '_includes/title' %}
+
+  {% include '_pages/before/' ~ entry.slug ignore missing %}
+
+  {% include '_includes/blocks' with { blocks: entry.blocks.level(1).all() } %}
+
+  {% include '_pages/after/' ~ entry.slug ignore missing %}
+
+{% endblock %}

@@ -1,0 +1,3 @@
+{% for block in blocks %}
+  {% include '_work/blocks/' ~ block.type ignore missing %}
+{% endfor %}

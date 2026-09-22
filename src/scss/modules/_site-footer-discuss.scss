@@ -1,0 +1,98 @@
+.site-footer-discuss {
+  background: var(--color-accent-darker);
+  color: var(--color-white);
+  padding: 40px 0;
+}
+
+.site-footer-discuss__container {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  @include breakpoint(tablet-down) {
+    flex-direction: column;
+  }
+}
+
+.site-footer-discuss__heading {
+  font-weight: 300;
+
+  @include breakpoint(desktop-up) {
+    max-width: 16ch;
+  }
+
+  strong {
+    color: var(--color-main);
+  }
+}
+
+.site-footer-discuss__ben {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  width: 100%;
+  max-width: 59%;
+  margin-left: auto;
+
+  @include breakpoint(tablet-down) {
+    max-width: none;
+  }
+}
+
+.site-footer-discuss__buttons {
+  flex-shrink: 0;
+  flex-basis: 13em;
+
+  .btn {
+    display: block;
+    background: var(--color-white);
+    color: var(--color-black);
+    text-align: center;
+    font-weight: 500;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.site-footer-discuss__photo {
+  flex-shrink: 1;
+  flex-basis: 268px;
+
+  @include breakpoint(tablet-down) {
+    flex-basis: 200px;
+  }
+
+  @include breakpoint(mobile) {
+    flex-basis: 150px;
+  }
+
+  @media (width <= 410px) {
+    display: none;
+  }
+
+  picture {
+    display: block;
+    position: relative;
+    padding-bottom: 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    border-radius: 999px;
+    @include object-fit(cover);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include breakpoint(small-mobile) {
+    display: none;
+  }
+}
