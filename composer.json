@@ -19,7 +19,7 @@
     "rss": "https://craftcms.com/changelog.rss"
   },
   "require": {
-    "craftcms/cms": "5.9.5",
+    "craftcms/cms": "5.11.3",
     "vlucas/phpdotenv": "^5.6.0",
     "spicyweb/craft-neo": "5.5.4",
     "doublesecretagency/craft-cpcss": "3.0.0",
@@ -28,9 +28,9 @@
     "spacecatninja/imager-x": "5.1.7",
     "leowebguy/mix-manifest": "2.0.0",
     "verbb/field-manager": "4.0.3",
-    "verbb/formie": "3.1.10",
+    "verbb/formie": "^3.1.43",
     "verbb/hyper": "2.3.0",
-    "craftcms/ckeditor": "4.11.0"
+    "craftcms/ckeditor": "5.7.0"
   },
   "autoload": {
     "psr-4": {
@@ -44,7 +44,7 @@
       "craftcms/plugin-installer": true
     },
     "platform": {
-      "php": "8.2"
+      "php": "8.5"
     }
   },
   "scripts": {
